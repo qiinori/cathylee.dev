@@ -1,32 +1,14 @@
 :root {
-    --bg-color: #faf9f6;
-    --text-color: #1a1a1a;
-    --acc-color: #555555;
-    --line-color: #e0e0e0;
-    --cursor-size: 20px;
-    --layout-padding: 3rem;
-    
-    /* Card / Portfolio Variables (Light Mode Default) */
-    --card-bg: var(--bg-color); /* Match page background */
-    --card-border: #e0e0e0;
-    --card-hover-bg: #ffffff; /* Highlight on hover */
-    --card-shadow: rgba(0,0,0,0.05); /* Subtle shadow */
-    --pill-bg: #e8e8e8;
-    --pill-text: #333333;
-    --pill-border: #d0d0d0;
-    --gradient-start: #333333;
-    --gradient-end: #666666;
-}
-
-[data-theme="dark"] {
+    /* Dark Mode Default */
     --bg-color: #111111;
     --text-color: #f0f0f0;
     --acc-color: #a0a0a0;
     --line-color: #333333;
+    --cursor-size: 20px;
+    --layout-padding: 3rem;
     
-    /* Dark Mode Overrides */
     --card-bg: #111111;
-    --card-border: #333333; /* Matched to line-color for uniformity */
+    --card-border: #333333;
     --card-hover-bg: #151515;
     --card-shadow: rgba(0,0,0,0.6);
     --pill-bg: #1a1a1a;
@@ -34,6 +16,24 @@
     --pill-border: #333333;
     --gradient-start: #ffffff;
     --gradient-end: #888888;
+}
+
+[data-theme="light"] {
+    --bg-color: #faf9f6;
+    --text-color: #1a1a1a;
+    --acc-color: #555555;
+    --line-color: #e0e0e0;
+    
+    /* Light Mode Overrides */
+    --card-bg: var(--bg-color);
+    --card-border: #e0e0e0;
+    --card-hover-bg: #ffffff;
+    --card-shadow: rgba(0,0,0,0.05);
+    --pill-bg: #e8e8e8;
+    --pill-text: #333333;
+    --pill-border: #d0d0d0;
+    --gradient-start: #333333;
+    --gradient-end: #666666;
 }
 
 * {
@@ -288,11 +288,11 @@ body {
 }
 
 .hero-corners {
-    width: 100vw; /* Span full viewport to match Navbar alignment */
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
-    left: -2vw; /* Counteract body padding to align with viewport edge */
+    left: 0;
     pointer-events: none;
     /* Let clicks pass through to canvas if needed */
 }

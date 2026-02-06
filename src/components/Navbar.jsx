@@ -19,7 +19,8 @@ const Navbar = () => {
         if (savedTheme) {
             setTheme(savedTheme);
             document.documentElement.setAttribute('data-theme', savedTheme);
-        } else if (prefersDark) {
+        } else {
+            // Default to dark mode if no preference saved
             setTheme('dark');
             document.documentElement.setAttribute('data-theme', 'dark');
         }
