@@ -4,9 +4,14 @@ const Experience = () => {
     return (
         <section id="experience" className="section">
             <div className="container">
+                <h2 className="mobile-section-title animate-on-scroll">Experience</h2>
                 <div className="experience-grid">
                     {content.experience.items.map((item, index) => (
-                        <div className="experience-item" key={index}>
+                        <div
+                            className="experience-item animate-on-scroll"
+                            key={index}
+                            style={{ transitionDelay: `${index * 150}ms` }}
+                        >
                             <div className="exp-row">
                                 <h3 className="exp-company">{item.company}</h3>
                                 <span className="exp-date">{item.date}</span>

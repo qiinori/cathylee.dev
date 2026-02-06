@@ -65,7 +65,11 @@ const Portfolio = () => {
                     {/* Grid */}
                     <div className="portfolio-grid">
                         {content.portfolio.categories[activeCategory].items.map((item, index) => (
-                            <article className="portfolio-item" key={index}>
+                            <article
+                                className="portfolio-item animate-on-scroll"
+                                key={index}
+                                style={{ transitionDelay: `${index * 150}ms` }}
+                            >
                                 <h3>{item.title}</h3>
                                 <p>{item.description}</p>
                                 <ul className="tech-stack">

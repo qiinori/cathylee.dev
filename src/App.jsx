@@ -33,6 +33,9 @@ function App() {
       observer.observe(section);
     });
 
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach(el => observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
 
