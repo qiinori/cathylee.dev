@@ -23,108 +23,108 @@ export const content = {
         }
     },
     portfolio: {
-        categories: [
-            {
-                id: "ecommerce",
-                label: "E-Commerce & Web Solutions",
-                items: [
-                    {
-                        meta: "E-Commerce / Solutions",
-                        title: "Integrated Shopify & Local Retail Ecosystems",
-                        description: "Delivered end-to-end full-stack solutions for diverse clients, including a specialized installation firm and local retail businesses. Developed custom Shopify integrations and optimized backend architectures to handle high-traffic seasonal surges.",
-                        techStack: ["React", "Shopify API", "Node.js", "Liquid", "Python"],
-                        video: null
-                    },
-                    {
-                        meta: "Web / Branding",
-                        title: "Bespoke Personal Brand Portfolios",
-                        description: "Designed and deployed high-performance personal websites for individual clients, focusing on responsive UI/UX and SEO optimization to enhance digital presence.",
-                        techStack: ["Next.js", "Tailwind CSS", "Framer Motion"],
-                        video: null
-                    },
-                    {
-                        meta: "E-Commerce / Design",
-                        title: "User-Centric UI/UX & Prototyping",
-                        description: "Led the complete UI/UX design lifecycle for e-commerce platforms and web applications, from wireframing and user research to high-fidelity prototyping. Leveraged Figma to create intuitive user flows that significantly improved engagement metrics.",
-                        techStack: ["Figma", "User Research", "Wireframing", "Prototyping"],
-                        video: null
-                    },
-                    {
-                        meta: "FinTech / Data Visualization",
-                        title: "Real-time Stock Metrics Platform",
-                        description: "A high-performance trading platform serving 100+ internal users with live market data visualization. Achieved 30% latency reduction through strategic caching and query optimization.",
-                        techStack: ["React", "Python", "Redis"],
-                        video: "/demo_video.mov"
-                    }
-                ]
-            },
-            {
-                id: "ios",
-                label: "IOS Innovation",
-                items: [
-                    {
-                        meta: "Enterprise / Mobile",
-                        title: "Employee Management App",
-                        description: "A centralized cross-platform application for managing thousands of employee records. Built from scratch with a secure database architecture and role-based access control.",
-                        techStack: ["React Native", "PostgreSQL", "Python"],
-                        video: null
-                    },
-                    {
-                        meta: "AR / Mobile",
-                        title: "AR Navigation",
-                        description: "iOS prototype using ARKit to reduce asset tracking errors. Features real-time computer vision for equipment identification and QR-based verification to streamline warehouse management.",
-                        techStack: ["SwiftUI", "ARKit", "Spring Boot"],
-                        video: null
-                    },
-                    {
-                        meta: "Mobile / Data",
-                        title: "Smart Inventory & Library Manager",
-                        description: "A high-performance iOS application for large-scale book cataloging. Integrated Google Books API for automated metadata retrieval and implemented a local-first architecture for seamless offline access and synchronization.",
-                        techStack: ["SwiftUI", "CoreData", "REST API", "Google Books API"],
-                        video: null
-                    },
-                    {
-                        meta: "AI / Mobile",
-                        title: "AI-Powered Gaming Analytics Assistant [WIP]",
-                        description: "A data-driven iOS application currently in development that analyzes individual player metrics to optimize gameplay. Utilizing machine learning to identify skill gaps and provide real-time strategic recommendations based on historical match data and playstyle analysis.",
-                        techStack: ["SwiftUI", "Core ML", "Python", "Pandas", "Firebase"],
-                        video: null
-                    }
-                ]
-            }
-        ]
+    categories: [
+        {
+            id: "fullstack",
+            label: "Full-Stack Web & E-Commerce",
+            items: [
+                {
+                    meta: "FinTech / Real-Time",
+                    title: "Stock Metrics Platform",
+                    description: "Built trading dashboard serving 100+ internal users with live market data visualization. Reduced query latency by 30% through Redis caching layer and optimized database indexing strategies.",
+                    techStack: ["React", "Python", "Grafana", "Prometheus", "PostgreSQL"],
+                    video: null
+                },
+                {
+                    meta: "Data Visualization / Analytics",
+                    title: "Interactive Business Intelligence Dashboards",
+                    description: "Designed and implemented custom analytics dashboards that transform complex datasets into actionable insights. Built data visualization tools for cross-functional teams to monitor KPIs, track business metrics, and make data-driven decisions in real-time.",
+                    techStack: ["Python", "PostgreSQL", "Grafana"],
+                    video: null
+                },
+                {
+                    meta: "E-Commerce / Full-Stack",
+                    title: "End-to-End E-Commerce Solutions & Brand Platforms",
+                    description: "Architected full-stack web solutions from e-commerce platforms to high-performance portfolio sites. Built custom Shopify integrations handling 3x seasonal traffic spikes, while delivering SEO-optimized brand websites achieving 95+ Lighthouse scores and measurable search visibility improvements.",
+                    techStack: ["React", "Next.js", "Shopify API", "Python"],
+                    video: null
+                },
+                {
+                    meta: "Product Design / UX",
+                    title: "Data-Driven Product Design & User Research",
+                    description: "Drove end-to-end UX design process from user research to production, creating data-informed designs in Figma that increased user engagement by 40% across e-commerce touchpoints.",
+                    techStack: ["Figma", "User Research", "Wireframing", "Prototyping"],
+                    video: null
+                },
+            ]
+        },
+        {
+            id: "mobile",
+            label: "Mobile & iOS Development",
+            items: [
+                {
+                    meta: "Enterprise / Cross-Platform",
+                    title: "Enterprise Workforce Management System",
+                    description: "Developed cross-platform employee management system handling 10,000+ records with PostgreSQL backend. Implemented role-based access control (RBAC) and secure authentication for enterprise compliance.",
+                    techStack: ["React Native", "PostgreSQL", "Python"],
+                    video: null
+                },
+                {
+                    meta: "AR / Computer Vision",
+                    title: "ARKit-Powered Warehouse Navigation",
+                    description: "Prototyped ARKit-based warehouse navigation tool that reduced asset tracking errors by 25%. Integrated computer vision for real-time equipment identification and QR code verification workflows.",
+                    techStack: ["SwiftUI", "ARKit", "Spring Boot"],
+                    video: null
+                },
+                {
+                    meta: "iOS / Offline-First",
+                    title: "Large-Scale Library Cataloging App [Beta]",
+                    description: "Built offline-first iOS cataloging app with SwiftUI and CoreData, supporting 50,000+ item library. Integrated Google Books API for automated metadata enrichment with background sync capabilities.",
+                    techStack: ["Flutter", "Python", "REST API", "Google Books API"],
+                    video: null
+                },
+                {
+                    meta: "AI / Gaming",
+                    title: "ML-Powered Gaming Performance Analyzer [Beta]",
+                    description: "Developing machine learning-powered gaming analytics platform (iOS) that analyzes player performance metrics using Core ML. Provides personalized improvement recommendations based on historical match data and meta analysis.",
+                    techStack: ["Flutter", "Core ML", "Python", "Pandas", "Firebase"],
+                    video: null
+                }
+            ]
+        }
+    ]
     },
     services: {
         items: [
             {
                 num: "01",
-                title: "Scalable Full-Stack Engineering",
-                description: "Delivering production-grade applications built for growth. By architecting high-performance React interfaces with robust Python or Java backends, I provide end-to-end digital products—not just code—designed to handle real-world traffic and complex business logic."
+                title: "Full-Stack Application Development",
+                description: "Building production-ready applications designed for scale and maintainability. I architect performant React frontends paired with Python/Java backends, delivering complete digital solutions that handle high-traffic demands and complex business requirements from day one."
             },
             {
                 num: "02",
-                title: "Mobile Product Development",
-                description: "Driving business results through intuitive mobile experiences. From enterprise-scale internal tools to niche AR solutions, I build high-performance applications using SwiftUI and React Native. My focus is on solving specific operational challenges with seamless, native-level performance."
+                title: "Native iOS & Mobile Engineering",
+                description: "Shipping native-quality mobile experiences that solve real business problems. Using SwiftUI and React Native, I build enterprise tools and consumer apps with focus on performance, offline reliability, and intuitive UX that drives user adoption."
             },
             {
                 num: "03",
-                title: "Data Intelligence & Real-Time Visualization",
-                description: "Transforming raw data into a strategic asset. I specialize in building high-frequency monitoring platforms and interactive dashboards. By visualizing KPIs in real-time, I enable stakeholders to make precision, data-driven decisions at the speed of their business."
+                title: "Real-Time Monitoring & Data Visualization",
+                description: "Converting complex data into actionable insights through real-time dashboards and monitoring systems. I build high-throughput visualization platforms using modern observability stacks (Grafana, Prometheus) that empower teams to make data-driven decisions instantly."
             },
             {
                 num: "04",
-                title: "Performance & Latency Optimization",
-                description: "Maximizing retention by eliminating technical bottlenecks. Slow software is a silent conversion killer. With a proven track record of reducing API latency by ~30%, I conduct deep-dive audits to optimize database queries and backend logic, ensuring a frictionless user experience."
+                title: "Performance Engineering & Optimization",
+                description: "Eliminating performance bottlenecks that impact user retention and revenue. Through systematic profiling and optimization—including database query tuning, caching strategies, and API optimization—I've consistently achieved 30%+ latency reductions in production systems."
             },
             {
                 num: "05",
-                title: "Cloud Architecture & DevOps Automation",
-                description: "Building resilient, cost-effective infrastructure. I facilitate seamless cloud transitions using Docker and Kubernetes for containerized reliability. By implementing automated CI/CD pipelines, I ensure deployments are fast, error-free, and require minimal manual overhead."
+                title: "Cloud Infrastructure & CI/CD Automation",
+                description: "Designing resilient cloud infrastructure with automated deployment pipelines. I implement containerized architectures using Docker/Kubernetes and establish CI/CD workflows that enable fast, reliable releases while reducing operational overhead and cloud costs."
             },
             {
                 num: "06",
-                title: "Legacy Modernization & API Strategy",
-                description: "Future-proofing your business by revitalizing aging tech. I specialize in refactoring legacy systems and building secure RESTful APIs. My approach breaks down information silos, allowing disparate tools to communicate and ensuring your stack remains modern and interoperable."
+                title: "Legacy Modernization & API Architecture",
+                description: "Modernizing legacy systems through strategic refactoring and API-first design. I transform monolithic architectures into maintainable, scalable services with well-documented RESTful APIs, enabling system interoperability and reducing technical debt."
             }
         ]
     },
