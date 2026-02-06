@@ -9,12 +9,10 @@ const Navbar = () => {
     useEffect(() => {
         let savedTheme = null;
         try {
-            savedTheme = localStorage.getItem('theme');
+            savedTheme = localStorage.getItem('theme_v2');
         } catch (e) {
             console.warn('LocalStorage access denied, using default theme behavior.');
         }
-
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
         if (savedTheme) {
             setTheme(savedTheme);
@@ -53,7 +51,7 @@ const Navbar = () => {
         setTheme(newTheme);
         document.documentElement.setAttribute('data-theme', newTheme);
         try {
-            localStorage.setItem('theme', newTheme);
+            localStorage.setItem('theme_v2', newTheme);
         } catch (e) {
             // Suppress storage errors
         }

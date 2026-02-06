@@ -44,6 +44,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -53,6 +54,8 @@ body {
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
     /* Cursor handled via class for accessible fallback */
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Only hide cursor when custom cursor is active */
