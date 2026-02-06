@@ -251,6 +251,7 @@ body:hover .cursor-follower {
 /* Hero Section */
 .hero {
     height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile browsers */
     min-height: 600px;
     display: flex;
     align-items: center;
@@ -723,6 +724,12 @@ body {
         padding-bottom: 4vh;
     }
 
+    .corner {
+        bottom: 5rem;
+        width: 100%;
+        padding: 0 1.5rem;
+    }
+    
     .container {
         height: auto;
         width: 100%;
