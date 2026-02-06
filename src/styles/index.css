@@ -166,6 +166,8 @@ body:hover .cursor-follower {
     background: transparent;
     color: var(--text-color);
     box-sizing: border-box;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 /* Mobile Section Titles */
@@ -1022,6 +1024,15 @@ body {
         width: 100%;
         max-width: 350px; /* Standardize width for consistency */
         margin: 0 auto;
+        height: auto !important;
+        min-height: 280px;
+    }
+    
+    .portfolio-item {
+        overflow: visible;
+    }
+    .portfolio-item p {
+        overflow-y: visible;
     }
 
     /* Add border to service cards on mobile to replace grid gap border effect */

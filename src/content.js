@@ -159,7 +159,7 @@ export const content = {
     },
     footer: {
         links: [
-            { label: "LinkedIn", url: "https://linkedin.com/in/icathy" },
+            { label: "LinkedIn", url: "https://linkedin.com/in/cathyleedev" },
             { label: "GitHub", url: "https://github.com/qiinori" },
             { label: "Email", url: "mailto:hi@cathylee.dev" }
         ],
