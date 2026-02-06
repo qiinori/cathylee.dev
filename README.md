@@ -2,6 +2,12 @@
 
 A modern, responsive personal portfolio website built with React, Vite, and Tailwind-inspired CSS.
 
+## Demo
+
+<video src="public/web_demo_video.mov" controls width="100%"></video>
+
+> **Note**: If the video doesn't play directly in your markdown viewer, you can view the [demo file](public/web_demo_video.mov).
+
 ## Features
 - **Dynamic Interactions**: Custom cursor, pixel background, and scroll animations.
 - **Dark/Light Mode**: Theme persistence with local storage.
