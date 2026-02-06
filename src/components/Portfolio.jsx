@@ -10,12 +10,17 @@ const Portfolio = () => {
 
             <div className="portfolio-video-intro">
                 <video
-                    src="/demo_video.mov"
                     autoPlay
                     loop
                     muted
                     playsInline
-                />
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                >
+                    {/* Chrome/Safari */}
+                    <source src="/demo_video.mov" />
+                    {/* Edge/Fallback */}
+                    <source src="/demo_video.mp4" type="video/mp4" />
+                </video>
             </div>
 
             {/* Page 2: Existing Grid with Tabs */}

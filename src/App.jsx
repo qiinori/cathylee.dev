@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+
 import PixelBackground from './components/PixelBackground';
 import CustomCursor from './components/CustomCursor';
 import SplashScreen from './components/SplashScreen';
@@ -51,6 +52,7 @@ function App() {
         <Experience />
         <Footer />
       </main>
+
       <Analytics />
     </>
   );
