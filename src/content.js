@@ -31,29 +31,29 @@ export const content = {
                 {
                     meta: "FinTech / Real-Time",
                     title: "Stock Metrics Platform",
-                    description: "Built trading dashboard serving 100+ internal users with live market data visualization. Reduced query latency by 30% through Redis caching layer and optimized database indexing strategies.",
-                    techStack: ["React", "Python", "Grafana", "Prometheus", "PostgreSQL"],
-                    video: null
-                },
-                {
-                    meta: "Data Visualization / Analytics",
-                    title: "Interactive Business Intelligence Dashboards",
-                    description: "Designed and implemented custom analytics dashboards that transform complex datasets into actionable insights. Built data visualization tools for cross-functional teams to monitor KPIs, track business metrics, and make data-driven decisions in real-time.",
-                    techStack: ["Python", "PostgreSQL", "Grafana"],
+                    description: "Designed and deployed a scalable trading platform serving 100+ internal users with React frontend, Python RESTful APIs, and live market data visualization. Achieved ~30% API latency reduction through query optimization and strategic caching. Established production-grade observability with Grafana, Prometheus, and Loki.",
+                    techStack: ["React", "Python", "Grafana", "Prometheus", "PostgreSQL", "Chart.js", "REST API", "Pandas", "Flask"],
                     video: null
                 },
                 {
                     meta: "E-Commerce / Full-Stack",
                     title: "End-to-End E-Commerce Solutions & Brand Platforms",
                     description: "Architected full-stack web solutions from e-commerce platforms to high-performance portfolio sites. Built custom Shopify integrations handling 3x seasonal traffic spikes, while delivering SEO-optimized brand websites achieving 95+ Lighthouse scores and measurable search visibility improvements.",
-                    techStack: ["React", "Next.js", "Shopify API", "Python"],
+                    techStack: ["React", "LiquidJS", "Shopify API", "Python", "PostgreSQL", "3D animation", "Vercel", "Tailwind CSS", "Google Analytics"],
+                    video: null
+                },
+                {
+                    meta: "Data Visualization / Analytics",
+                    title: "Interactive Business Intelligence Dashboards",
+                    description: "Designed and implemented custom analytics dashboards that transform complex datasets into actionable insights. Built data visualization tools for cross-functional teams to monitor KPIs, track business metrics, and make data-driven decisions in real-time.",
+                    techStack: ["Python", "PostgreSQL", "Grafana", "Prometheus", "Plotly", "REST API", "Pandas", "Flask", "Jupyter Notebook"],
                     video: null
                 },
                 {
                     meta: "Product Design / UX",
                     title: "Data-Driven Product Design & User Research",
                     description: "Drove end-to-end UX design process from user research to production, creating data-informed designs in Figma that increased user engagement by 40% across e-commerce touchpoints.",
-                    techStack: ["Figma", "User Research", "Wireframing", "Prototyping"],
+                    techStack: ["Figma", "User Research", "Wireframing", "Prototyping", "UserTesting", "Usability Testing", "Google Analytics"],
                     video: null
                 },
             ]
