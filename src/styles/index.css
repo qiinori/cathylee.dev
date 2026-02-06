@@ -54,7 +54,6 @@ body {
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
     /* Cursor handled via class for accessible fallback */
-    overflow-x: hidden;
     width: 100%;
 }
 
@@ -159,7 +158,7 @@ body:hover .cursor-follower {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem 3rem;
+    padding: 2rem calc(3rem + 2vw);
     display: flex;
     justify-content: space-between;
     align-items: center;
