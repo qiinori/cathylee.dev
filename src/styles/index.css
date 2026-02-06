@@ -154,7 +154,8 @@ body:hover .cursor-follower {
 
 /* Navigation */
 .nav {
-    position: fixed;
+    /* Use sticky to avoid dynamic viewport jitter on mobile */
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -166,8 +167,6 @@ body:hover .cursor-follower {
     background: transparent;
     color: var(--text-color);
     box-sizing: border-box;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
 }
 
 /* Mobile Section Titles */
