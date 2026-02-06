@@ -346,9 +346,27 @@ body {
 }
 
 /* Portfolio Section */
+.portfolio-video-intro {
+    height: 100vh;
+    width: 100%;
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-video-intro video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     width: 100%;
 }
@@ -359,10 +377,11 @@ body {
     gap: 1rem;
     background-color: var(--card-bg);
     border: 1px solid var(--card-border);
-    padding: 1.5rem;
+    padding: 1.25rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
-    /* overflow: hidden; */
+    min-height: 260px; /* Enforce consistent minimum height */
+    height: 100%; /* Stretch to fill grid cell */
 }
 
 .portfolio-item:hover {
@@ -727,7 +746,10 @@ body {
         height: 75vh;
         gap: 1rem;
         align-content: center;
+        grid-template-columns: repeat(2, 1fr); /* Enforce 2 columns as requested */
     }
+
+
 
     /* Experience Desktop */
     #experience .container {
@@ -903,8 +925,29 @@ body {
         grid-template-columns: 1fr;
     }
 
+    /* Reduce font size and padding to prevent overlap while maintaining alignment */
     .corner {
-        padding: 0 1.5rem !important;
+        padding: 0 1rem !important;
+        font-size: 0.75rem;
+        line-height: 1.2;
+    }
+
+    .corner p {
+        font-size: 0.75rem; /* Smaller text */
+    }
+
+    .label {
+        font-size: 0.6rem; /* Smaller label */
+    }
+
+    .portfolio-video-intro {
+        height: 40vh !important; /* Smaller on mobile */
+        min-height: 300px;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        gap: 1.5rem;
     }
 }
 

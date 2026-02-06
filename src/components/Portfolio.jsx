@@ -1,22 +1,76 @@
 import { content } from '../content';
+import { useState } from 'react';
 
 const Portfolio = () => {
+    const [activeCategory, setActiveCategory] = useState(0);
+
     return (
-        <section id="portfolio" className="section">
-            <div className="container">
-                <div className="portfolio-grid">
-                    {content.portfolio.items.map((item, index) => (
-                        <article className="portfolio-item" key={index}>
-                            <div className="item-meta">{item.meta}</div>
-                            <h3>{item.title}</h3>
-                            <p>{item.description}</p>
-                            <ul className="tech-stack">
-                                {item.techStack.map((tech, i) => (
-                                    <li key={i}>{tech}</li>
-                                ))}
-                            </ul>
-                        </article>
-                    ))}
+        <section id="portfolio" style={{ padding: 0 }}>
+            {/* Page 1: Video Intro */}
+
+            <div className="portfolio-video-intro">
+                <video
+                    src="/demo_video.mov"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                />
+            </div>
+
+            {/* Page 2: Existing Grid with Tabs */}
+            <div className="section" style={{
+                minHeight: '100vh',
+                scrollSnapAlign: 'start',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
+            }}>
+                <div className="container">
+                    {/* Tab Bar */}
+                    <div className="portfolio-tabs" style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        gap: '2rem',
+                        marginBottom: '3rem',
+                        flexWrap: 'wrap'
+                    }}>
+                        {content.portfolio.categories.map((category, index) => (
+                            <button
+                                key={category.id}
+                                onClick={() => setActiveCategory(index)}
+                                style={{
+                                    background: 'none',
+                                    border: 'none',
+                                    borderBottom: activeCategory === index ? '2px solid var(--acc-color)' : '2px solid transparent',
+                                    padding: '0.5rem 1rem',
+                                    fontSize: '1rem',
+                                    cursor: 'pointer',
+                                    color: activeCategory === index ? 'var(--text-color)' : 'var(--acc-color)',
+                                    transition: 'all 0.3s ease',
+                                    fontFamily: 'inherit',
+                                    letterSpacing: '0.5px'
+                                }}
+                            >
+                                {category.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Grid */}
+                    <div className="portfolio-grid">
+                        {content.portfolio.categories[activeCategory].items.map((item, index) => (
+                            <article className="portfolio-item" key={index}>
+                                <h3>{item.title}</h3>
+                                <p>{item.description}</p>
+                                <ul className="tech-stack">
+                                    {item.techStack.map((tech, i) => (
+                                        <li key={i}>{tech}</li>
+                                    ))}
+                                </ul>
+                            </article>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
