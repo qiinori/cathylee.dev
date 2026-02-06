@@ -64,7 +64,7 @@ describe('Navbar Component', () => {
         if (themeBtn) {
             fireEvent.click(themeBtn);
             // Verify localStorage update
-            expect(localStorage.getItem('theme')).not.toBeNull();
+            expect(localStorage.getItem('theme_v2')).not.toBeNull();
         }
     });
 });

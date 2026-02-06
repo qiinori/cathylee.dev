@@ -951,6 +951,65 @@ body {
     .contact-links {
         flex-direction: column;
         gap: 1.5rem;
+        align-items: center; /* Center items horizontally */
+        text-align: center;
+    }
+
+    /* Mobile Portfolio & Services Alignment */
+    .portfolio-grid,
+    .services-grid {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        background-color: transparent; /* Remove grid background color */
+        border: none; /* Remove grid border */
+    }
+
+    .portfolio-item,
+    .service-card {
+        width: 100%;
+        max-width: 350px; /* Standardize width for consistency */
+        margin: 0 auto;
+    }
+
+    /* Add border to service cards on mobile to replace grid gap border effect */
+    .service-card {
+        border: 1px solid var(--card-border);
+    }
+
+    /* Mobile Experience Layout */
+    .experience-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1.5rem;
+        background-color: var(--card-bg);
+        border: 1px solid var(--card-border);
+        margin-bottom: 1.5rem;
+    }
+
+    .exp-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+
+    .exp-company {
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .exp-date {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.6;
+    }
+
+    .exp-details {
+        padding-left: 0;
+        border-left: none;
+        margin-top: 0.5rem;
     }
 }
 
