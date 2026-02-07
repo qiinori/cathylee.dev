@@ -1,22 +1,20 @@
-:root {
-    /* Dark Mode Default */
-    --bg-color: #111111;
-    --text-color: #f0f0f0;
-    --acc-color: #a0a0a0;
-    --line-color: #333333;
-    --cursor-size: 20px;
-    --layout-padding: 3rem;
-    
-    --card-bg: #111111;
-    --card-border: #333333;
-    --card-hover-bg: #151515;
-    --card-shadow: rgba(0,0,0,0.6);
-    --pill-bg: #1a1a1a;
-    --pill-text: #dddddd;
-    --pill-border: #333333;
-    --gradient-start: #ffffff;
-    --gradient-end: #888888;
-}
+/* Base Styles */
+@import './base/variables.css';
+@import './base/reset.css';
+
+/* Layout & Components */
+@import './layout/main.css';
+@import './components.css';
+
+/* Sections */
+@import './sections/hero.css';
+@import './sections/portfolio.css';
+@import './sections/services.css';
+@import './sections/experience.css';
+@import './sections/footer.css';
+
+/* Responsive Overrides (Must be last) */
+@import './layout/responsive.css';
 
 [data-theme="light"] {
     --bg-color: #faf9f6;
@@ -154,8 +152,8 @@ body:hover .cursor-follower {
 
 /* Navigation */
 .nav {
-    /* Use sticky to avoid dynamic viewport jitter on mobile */
-    position: sticky;
+    /* Revert to fixed based on user request for simpler layout */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -270,7 +268,7 @@ body:hover .cursor-follower {
 /* Hero Section */
 .hero {
     height: 100vh;
-    height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    height: 100dvh; 
     min-height: 600px;
     display: flex;
     align-items: center;
@@ -279,14 +277,13 @@ body:hover .cursor-follower {
     border-bottom: 1px solid var(--line-color);
     padding: 0;
     background-color: transparent;
+    margin-top: 0; 
 }
 
-/* Reset container for hero to allow full width/height positioning relative to viewport */
 .hero .container {
     display: none;
 }
 
-/* Add a margin to body to create a "frame" effect */
 body {
     padding: 0 2vw;
 }

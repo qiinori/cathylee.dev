@@ -1,0 +1,75 @@
+/* Footer / Contact */
+.footer {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    border-bottom: none;
+    scroll-snap-align: start;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    height: 100%;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+}
+
+.footer-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 6rem 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 4rem;
+    line-height: 1;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 0;
+    justify-content: center;
+}
+
+.contact-link {
+    font-size: 1.5rem;
+    position: relative;
+    font-weight: 300;
+}
+
+.contact-link::before {
+    content: '→';
+    position: absolute;
+    left: -30px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover::before {
+    opacity: 1;
+    left: -25px;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: var(--acc-color);
+    font-family: monospace;
+    opacity: 0.5;
+    margin-top: 2rem;
+    text-align: center;
+}

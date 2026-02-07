@@ -1,0 +1,160 @@
+/* Navigation */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem calc(2vw + 3rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: transparent;
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.nav-links li a:hover {
+    opacity: 1;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active-link::after {
+    width: 100%;
+}
+
+.nav-links li a.active-link {
+    opacity: 1;
+    font-weight: 500;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
+    mix-blend-mode: difference;
+    color: var(--text-color);
+}
+
+.mobile-menu-btn .bar {
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.mobile-menu-btn .bar:nth-child(1) {
+    transform-origin: center;
+}
+.mobile-menu-btn .bar:nth-child(2) {
+    transform-origin: center;
+}
+
+/* Open State */
+.mobile-menu-btn.open .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.mobile-menu-btn.open .bar:nth-child(2) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Common Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    border-left: none;
+    border-right: none;
+    min-height: 100%;
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.section {
+    padding: 8rem 0;
+    min-height: 80vh;
+    border-bottom: none;
+}
+
+.section:last-of-type {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4rem;
+    opacity: 0.5;
+}
+
+/* Mobile Section Titles */
+.mobile-section-title {
+    display: none;
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .mobile-section-title {
+        display: block;
+    }
+}

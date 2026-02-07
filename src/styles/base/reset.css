@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Cursor handled via class for accessible fallback */
+    width: 100%;
+    padding: 0 2vw;
+}
+
+/* Only hide cursor when custom cursor is active */
+body.custom-cursor-active {
+    cursor: none;
+}
+
+body.custom-cursor-active a,
+body.custom-cursor-active button {
+    cursor: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    /* Cursor handled via class */
+}
+
+ul {
+    list-style: none;
+}
+
+/* Apply blend mode to specific elements that need it */
+.logo,
+#theme-toggle,
+.mobile-menu-btn,
+.nav-links {
+    mix-blend-mode: difference;
+}

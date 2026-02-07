@@ -1,0 +1,149 @@
+/* Desktop Constraints */
+
+@media (min-width: 1024px) {
+    .section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        scroll-snap-align: start;
+        padding-top: 100px;
+        padding-bottom: 4vh;
+    }
+
+    .corner {
+        bottom: 2rem;
+        width: 100%;
+        padding: 0 1.5rem;
+    }
+    
+    .container {
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    /* Desktop Grid Layouts */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        height: 75vh;
+        gap: 0;
+        background-color: transparent;
+        border: none;
+        width: 100%;
+    }
+
+    /* Portfolio Desktop */
+    .portfolio-grid {
+        height: auto;
+        min-height: 75vh;
+        gap: 2rem;
+        align-content: start; 
+        grid-template-columns: repeat(2, 1fr); 
+        align-items: stretch;
+    }
+
+    /* Experience Desktop */
+    #experience .container {
+        height: 75vh;
+        overflow-y: hidden;
+    }
+
+    /* Footer Desktop */
+    .footer-grid {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-title {
+        font-size: 4rem;
+        text-align: left;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1.5rem;
+    }
+}
+
+
+/* Mobile Adjustments (Overrides) */
+@media (max-width: 1023px) { /* Up to tablet/desktop boundary */
+    
+    .nav {
+        padding: 1.5rem;
+    }
+    
+    .container {
+        padding: 0 1.5rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Stack Contact Links on Mobile */
+    .contact-links {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center; /* Center items horizontally */
+        text-align: center;
+    }
+
+    /* Mobile Portfolio & Services Alignment */
+    .portfolio-grid,
+    .services-grid {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        background-color: transparent;
+        border: none; 
+    }
+
+    .portfolio-item,
+    .service-card {
+        width: 100%;
+        max-width: 350px; /* Standardize width for consistency */
+        margin: 0 auto;
+        height: auto !important;
+        min-height: 280px;
+    }
+    
+    .portfolio-item {
+        overflow: visible;
+    }
+
+    .splash-text {
+        font-size: 1.2rem;
+    }
+
+    .section {
+        padding: 120px 0 4rem 0; /* More top padding for mobile */
+    }
+
+    .hero-center-text {
+        font-size: 0.8rem;
+    }
+
+    .corner {
+        padding: 0 1.5rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        /* Ensure corners are visible on mobile */
+        bottom: 2rem; 
+    }
+ 
+    .label {
+        font-size: 0.6rem;
+    }
+    .corner p {
+        font-size: 0.8rem;
+    }
+}

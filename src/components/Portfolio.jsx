@@ -33,29 +33,12 @@ const Portfolio = () => {
             }}>
                 <div className="container">
                     {/* Tab Bar */}
-                    <div className="portfolio-tabs" style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        gap: '2rem',
-                        marginBottom: '3rem',
-                        flexWrap: 'wrap'
-                    }}>
+                    <div className="portfolio-tabs">
                         {content.portfolio.categories.map((category, index) => (
                             <button
                                 key={category.id}
                                 onClick={() => setActiveCategory(index)}
-                                style={{
-                                    background: 'none',
-                                    border: 'none',
-                                    borderBottom: activeCategory === index ? '2px solid var(--acc-color)' : '2px solid transparent',
-                                    padding: '0.5rem 1rem',
-                                    fontSize: '1rem',
-                                    cursor: 'pointer',
-                                    color: activeCategory === index ? 'var(--text-color)' : 'var(--acc-color)',
-                                    transition: 'all 0.3s ease',
-                                    fontFamily: 'inherit',
-                                    letterSpacing: '0.5px'
-                                }}
+                                className={`tab-btn ${activeCategory === index ? 'active' : ''}`}
                             >
                                 {category.label}
                             </button>
