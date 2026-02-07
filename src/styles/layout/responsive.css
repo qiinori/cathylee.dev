@@ -25,7 +25,7 @@
         justify-content: flex-start;
     }
 
-    /* Desktop Grid Layouts */
+    /* Services Grid Desktop */
     .services-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -35,6 +35,28 @@
         background-color: transparent;
         border: none;
         width: 100%;
+    }
+
+    .service-card {
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-color);
+        border: 1px solid var(--card-border);
+        gap: 0.8rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem; 
+        line-height: 1.2;
+    }
+    .service-card p {
+        font-size: 0.8rem;
+        line-height: 1.4;
     }
 
     /* Portfolio Desktop */
@@ -55,21 +77,15 @@
 
     /* Footer Desktop */
     .footer-grid {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .footer-title {
-        font-size: 4rem;
-        text-align: left;
-    }
-
-    .contact-links {
+        width: 100%;
+        height: 75vh;
+        border: none;
+        border-bottom: none;
+        display: flex;
         flex-direction: column;
-        align-items: flex-end;
-        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
     }
 }
 
@@ -131,19 +147,267 @@
         font-size: 0.8rem;
     }
 
-    .corner {
-        padding: 0 1.5rem;
-        width: 100%;
+    /* Hero Corners: Side-by-side on Mobile */
+    .hero-corners {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
-        /* Ensure corners are visible on mobile */
-        bottom: 2rem; 
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-bottom: 2rem;
+        z-index: 2;
+    }
+
+    .corner {
+        position: static;
+        width: auto;
+        max-width: 48%; /* Prevent overlap by capping width */
+        padding: 0 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        pointer-events: none;
     }
  
+    .corner p, .corner span {
+        pointer-events: auto;
+    }
+
+    .bottom-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .bottom-right {
+        text-align: right;
+        align-items: flex-end;
+    }
+
     .label {
         font-size: 0.6rem;
     }
     .corner p {
+        font-size: 0.75rem; /* Slightly smaller to fit better */
+        line-height: 1.1;
+    }
+}
+
+/* Tablet / Small Desktop (2-Column Mode) */
+@media (min-width: 650px) and (max-width: 1023px) {
+    .section {
+        min-height: 100vh;
+        justify-content: center;
+        padding-top: 100px;
+        padding-bottom: 4vh;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: 85vh; 
+        gap: 0;
+        border: none;
+        background-color: transparent;
+        width: 100%;
+    }
+
+    /* Animations */
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .service-card {
+        padding: 1rem;
+        gap: 0.5rem;
+        border: 1px solid var(--card-border);
+    }
+
+    .service-card h3 {
+        font-size: 1rem;
+    }
+    
+    .service-card p {
         font-size: 0.8rem;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --layout-padding: 1.5rem;
+    }
+
+    .nav {
+        padding: 1.5rem 1.5rem !important;
+        flex-direction: row;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--bg-color); 
+        background: #111 !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 10001;
+        
+        mix-blend-mode: normal !important;
+        opacity: 1 !important;
+        backdrop-filter: none !important;
+        
+        color: #fff !important;
+    }
+
+    .nav-links[data-theme="light"] {
+       background: #fff !important;
+       color: #000 !important;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li a {
+        font-size: 1.5rem;
+        opacity: 1;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        z-index: 10002;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .exp-date {
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reduce font size and padding to prevent overlap while maintaining alignment */
+    .corner {
+        padding: 0 1rem !important;
+        font-size: 0.75rem;
+        line-height: 1.2;
+    }
+
+    .corner p {
+        font-size: 0.75rem; /* Smaller text */
+    }
+
+    .label {
+        font-size: 0.6rem; /* Smaller label */
+    }
+
+    .portfolio-video-intro {
+        height: 40vh !important; /* Smaller on mobile */
+        min-height: 300px;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center; /* Center items horizontally */
+        text-align: center;
+    }
+
+    /* Mobile Portfolio & Services Alignment */
+    .portfolio-grid,
+    .services-grid {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        background-color: transparent;
+        border: none; 
+    }
+
+    .portfolio-item,
+    .service-card {
+        width: 100%;
+        max-width: 350px; /* Standardize width for consistency */
+        margin: 0 auto;
+        height: auto !important;
+        min-height: 280px;
+    }
+    
+    .portfolio-item {
+        overflow: visible;
+    }
+    .portfolio-item p {
+        overflow-y: visible;
+    }
+
+    /* Add border to service cards on mobile to replace grid gap border effect */
+    .service-card {
+        border: 1px solid var(--card-border);
+    }
+
+    /* Mobile Experience Layout */
+    .experience-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1.5rem;
+        background-color: var(--card-bg);
+        border: 1px solid var(--card-border);
+        margin-bottom: 1.5rem;
+        /* Match Service Card Width */
+        width: 100%;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .exp-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+
+    .exp-company {
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .exp-date {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.6;
+    }
+
+    .exp-details {
+        padding-left: 0;
+        border-left: none;
+        margin-top: 0.5rem;
     }
 }

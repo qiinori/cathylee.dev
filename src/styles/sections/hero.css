@@ -40,6 +40,15 @@ section.hero {
     color: var(--text-color); 
 }
 
+.bottom-left {
+    left: 0;
+}
+
+.bottom-right {
+    right: 0;
+    text-align: right;
+}
+
 .label {
     display: block;
     color: var(--acc-color);

@@ -1,7 +1,8 @@
 /* Experience Section */
 .experience-item {
     margin-bottom: 3rem;
-    transition: transform 0.3s ease;
+    margin-bottom: 3rem;
+    transition: all 0.3s ease;
     width: 100%;
 }
 

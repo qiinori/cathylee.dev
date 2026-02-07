@@ -5,7 +5,8 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    transition: background-color 0.3s;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
 }
 
 .services-grid {
