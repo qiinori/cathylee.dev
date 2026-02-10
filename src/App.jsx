@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import PixelBackground from './components/PixelBackground';
 import CustomCursor from './components/CustomCursor';
@@ -57,6 +58,7 @@ function App() {
       </main>
 
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
