@@ -11,33 +11,31 @@ describe('Portfolio Component', () => {
 
     it('renders category tabs', () => {
         render(<Portfolio />);
-        expect(screen.getByText('E-Commerce & Web Solutions')).toBeDefined();
+        expect(screen.getByText('Full-Stack Web & E-Commerce')).toBeDefined();
         // Fintech should no longer exist
         expect(screen.queryByText('Fintech & Data Observability')).toBeNull();
-        expect(screen.getByText('IOS Innovation')).toBeDefined();
+        expect(screen.getByText('Mobile & iOS Development')).toBeDefined();
     });
 
     it('displays default category content (E-Commerce)', () => {
         render(<Portfolio />);
-        // Default category should be E-Commerce
-        expect(screen.getByText('Integrated Shopify & Local Retail Ecosystems')).toBeDefined();
-        // Stock Metrics is now in E-Commerce
-        expect(screen.getByText('Real-time Stock Metrics Platform')).toBeDefined();
-        // API Integrations should be replaced
-        expect(screen.queryByText('Custom API Integrations & Performance Tuning')).toBeNull();
+        // Default category should be Full-Stack
+        expect(screen.getByText('End-to-End E-Commerce Solutions & Brand Platforms')).toBeDefined();
+        // Stock Metrics is now in Full-Stack
+        expect(screen.getByText('Stock Metrics Platform')).toBeDefined();
     });
 
     it('switches content when clicking tabs', () => {
         render(<Portfolio />);
 
-        // Click IOS tab
-        const iosTab = screen.getByText('IOS Innovation');
+        // Click iOS tab
+        const iosTab = screen.getByText('Mobile & iOS Development');
         fireEvent.click(iosTab);
 
-        // Now should see IOS content (e.g., new AI item)
-        expect(screen.getByText('AI-Powered Gaming Analytics Assistant [WIP]')).toBeDefined();
+        // Now should see iOS content
+        expect(screen.getByText('ML-Powered Gaming Performance Analyzer [Beta]')).toBeDefined();
         // And NOT E-commerce content
-        expect(screen.queryByText('Integrated Shopify & Local Retail Ecosystems')).toBeNull();
+        expect(screen.queryByText('End-to-End E-Commerce Solutions & Brand Platforms')).toBeNull();
     });
 
     it('renders correct number of items for default category', () => {

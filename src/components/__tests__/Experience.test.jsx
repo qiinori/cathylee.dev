@@ -16,7 +16,7 @@ describe('Experience Component', () => {
         const companyNames = screen.getAllByText('Morgan Stanley');
         expect(companyNames.length).toBeGreaterThan(0);
         expect(screen.getByText('Freelance')).toBeInTheDocument();
-        expect(screen.getByText('IMI')).toBeInTheDocument();
+        expect(screen.getByText('IMI - A Global People Company')).toBeInTheDocument();
     });
 
     test('renders job titles and locations correctly', () => {

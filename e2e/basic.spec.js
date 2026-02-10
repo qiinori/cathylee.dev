@@ -48,11 +48,11 @@ test.describe('Personal Site E2E', () => {
     }
   });
 
-  test('services section matches snapshot', async ({ page }) => {
+  test('capabilities section matches snapshot', async ({ page }) => {
     // Basic visibility check
-    const services = page.locator('#services');
-    await expect(services).toBeVisible();
-    await expect(page.getByText('Scalable Full-Stack Engineering')).toBeVisible();
+    const capabilities = page.locator('#capabilities');
+    await expect(capabilities).toBeVisible();
+    await expect(page.getByText('Full-Stack Application Development')).toBeVisible();
   });
 
   test('active nav link highlighting', async ({ page }) => {

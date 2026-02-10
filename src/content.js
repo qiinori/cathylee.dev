@@ -149,7 +149,7 @@ export const content = {
                 location: "Remote"
             },
             {
-                company: "IMI",
+                company: "IMI - A Global People Company",
                 date: "2021",
                 role: "Software Developer",
                 location: "Ottawa, Canada"

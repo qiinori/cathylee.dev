@@ -13,13 +13,19 @@ describe('SplashScreen Component', () => {
     });
 
     it('renders initially visible', () => {
-        render(<SplashScreen />);
+        act(() => {
+            render(<SplashScreen />);
+        });
         expect(screen.getByText('Cathy Lee')).toBeInTheDocument();
         expect(screen.getByText('Portfolio 2026')).toBeInTheDocument();
     });
 
     it('disappears after timeout', () => {
-        const { container } = render(<SplashScreen />);
+        let container;
+        act(() => {
+            const result = render(<SplashScreen />);
+            container = result.container;
+        });
         const splash = container.querySelector('#splash-screen');
 
         expect(splash).toBeVisible();

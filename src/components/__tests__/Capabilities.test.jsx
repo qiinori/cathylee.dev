@@ -14,7 +14,7 @@ describe('Capabilities Component', () => {
         expect(screen.getByText(/Full-Stack Application Development/i)).toBeInTheDocument();
         expect(screen.getByText(/Native iOS & Mobile Engineering/i)).toBeInTheDocument();
         expect(screen.getByText(/Real-Time Monitoring & Data Visualization/i)).toBeInTheDocument();
-        expect(screen.getByText(/Performance & Latency Optimization/i)).toBeInTheDocument();
+        expect(screen.getByText(/Performance Engineering & Optimization/i)).toBeInTheDocument();
         expect(screen.getByText(/Cloud Infrastructure & CI\/CD Automation/i)).toBeInTheDocument();
         expect(screen.getByText(/Legacy Modernization & API Architecture/i)).toBeInTheDocument();
     });
