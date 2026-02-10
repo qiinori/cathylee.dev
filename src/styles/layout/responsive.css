@@ -14,7 +14,7 @@
     .corner {
         bottom: 2rem;
         width: 100%;
-        padding: 0 1.5rem;
+        padding: 0 3rem;
     }
     
     .container {
@@ -313,19 +313,31 @@
         grid-template-columns: 1fr;
     }
 
-    /* Reduce font size and padding to prevent overlap while maintaining alignment */
+    body {
+        padding: 0 !important;
+    }
+
     .corner {
-        padding: 0 1rem !important;
+        padding: 0 1.5rem !important; 
         font-size: 0.75rem;
         line-height: 1.2;
     }
 
     .corner p {
-        font-size: 0.75rem; /* Smaller text */
+        font-size: 0.7rem; 
+        white-space: nowrap; /* Enforce single line */
     }
 
     .label {
-        font-size: 0.6rem; /* Smaller label */
+        font-size: 0.6rem; 
+    }
+
+    .bottom-right {
+        max-width: 65%; 
+    }
+    
+    .bottom-left {
+        max-width: 35%;
     }
 
     .portfolio-video-intro {
