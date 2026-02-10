@@ -11,7 +11,7 @@ export const content = {
         logo: "Cathy Lee",
         links: [
             { id: "portfolio", label: "Portfolio" },
-            { id: "services", label: "Services" },
+            { id: "capabilities", label: "CAPABILITIES" },
             { id: "experience", label: "Experience" },
             { id: "contact", label: "Contact" }
         ]
@@ -94,7 +94,7 @@ export const content = {
         }
     ]
     },
-    services: {
+    capabilities: {
         items: [
             {
                 num: "01",

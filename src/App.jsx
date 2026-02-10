@@ -7,7 +7,7 @@ import SplashScreen from './components/SplashScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
-import Services from './components/Services';
+import Capabilities from './components/Capabilities';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
 
@@ -51,7 +51,7 @@ function App() {
       <main>
         <Hero />
         <Portfolio />
-        <Services />
+        <Capabilities />
         <Experience />
         <Footer />
       </main>

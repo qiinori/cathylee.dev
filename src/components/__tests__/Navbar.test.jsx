@@ -47,7 +47,7 @@ describe('Navbar Component', () => {
     test('renders navigation links', () => {
         render(<Navbar />);
         expect(screen.getByText('Portfolio')).toBeInTheDocument();
-        expect(screen.getByText('Services')).toBeInTheDocument();
+        expect(screen.getByText('CAPABILITIES')).toBeInTheDocument();
         expect(screen.getByText('Experience')).toBeInTheDocument();
         expect(screen.getByText('Contact')).toBeInTheDocument();
     });

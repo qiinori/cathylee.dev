@@ -1,16 +1,16 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import Services from '../Services';
+import Capabilities from '../Capabilities';
 
-describe('Services Component', () => {
-    it('renders the services section', () => {
-        render(<Services />);
-        const section = document.querySelector('#services');
+describe('Capabilities Component', () => {
+    it('renders the capabilities section', () => {
+        render(<Capabilities />);
+        const section = document.querySelector('#capabilities');
         expect(section).toBeTruthy();
     });
 
     it('displays the correct service titles', () => {
-        render(<Services />);
+        render(<Capabilities />);
         expect(screen.getByText(/Full-Stack Application Development/i)).toBeInTheDocument();
         expect(screen.getByText(/Native iOS & Mobile Engineering/i)).toBeInTheDocument();
         expect(screen.getByText(/Real-Time Monitoring & Data Visualization/i)).toBeInTheDocument();
@@ -19,9 +19,9 @@ describe('Services Component', () => {
         expect(screen.getByText(/Legacy Modernization & API Architecture/i)).toBeInTheDocument();
     });
 
-    it('renders exactly 6 service cards', () => {
-        const { container } = render(<Services />);
-        const cards = container.querySelectorAll('.service-card');
+    it('renders exactly 6 capability cards', () => {
+        const { container } = render(<Capabilities />);
+        const cards = container.querySelectorAll('.capability-card');
         expect(cards.length).toBe(6);
     });
 });
