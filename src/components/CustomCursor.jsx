@@ -17,12 +17,14 @@ const CustomCursor = () => {
 
             const onMouseEnter = () => {
                 cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
-                cursor.style.mixBlendMode = 'difference';
+                cursor.style.mixBlendMode = 'normal';
+                cursor.style.opacity = '0.1';
             };
 
             const onMouseLeave = () => {
                 cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursor.style.mixBlendMode = 'normal';
+                cursor.style.mixBlendMode = 'difference';
+                cursor.style.opacity = '';
             };
 
             document.addEventListener('mousemove', onMouseMove);

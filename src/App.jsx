@@ -52,7 +52,7 @@ function App() {
       <main>
         <Hero />
         <Portfolio />
-        <Capabilities />
+        {/* <Capabilities /> */}
         <Experience />
         <Footer />
       </main>

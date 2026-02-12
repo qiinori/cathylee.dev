@@ -62,9 +62,9 @@
     /* Portfolio Desktop */
     .portfolio-grid {
         height: auto;
-        min-height: 75vh;
+        min-height: auto; 
         gap: 2rem;
-        align-content: start; 
+        align-content: center;
         grid-template-columns: repeat(2, 1fr); 
         align-items: stretch;
     }
@@ -125,14 +125,35 @@
     .portfolio-item,
     .capability-card {
         width: 100%;
-        max-width: 350px; /* Standardize width for consistency */
+        max-width: 340px; 
         margin: 0 auto;
         height: auto !important;
-        min-height: 280px;
+        min-height: auto; 
+        padding: 1.25rem;
+        gap: 0.8rem;
+    }
+
+    .portfolio-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.4rem;
+        line-height: 1.3;
+    }
+
+    .portfolio-item p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
     }
     
     .portfolio-item {
         overflow: visible;
+    }
+
+    .portfolio-footer {
+        width: 100%;
+        max-width: 340px; 
+        margin: 0.8rem auto 0 auto; 
+        justify-content: flex-end;
     }
 
     .splash-text {
@@ -140,7 +161,7 @@
     }
 
     .section {
-        padding: 120px 0 4rem 0; /* More top padding for mobile */
+        padding: 120px 0 4rem 0;
     }
 
     .hero-center-text {

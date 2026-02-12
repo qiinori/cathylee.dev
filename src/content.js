@@ -11,7 +11,7 @@ export const content = {
         logo: "Cathy Lee",
         links: [
             { id: "portfolio", label: "Portfolio" },
-            { id: "capabilities", label: "CAPABILITIES" },
+            // { id: "capabilities", label: "CAPABILITIES" },
             { id: "experience", label: "Experience" },
             { id: "contact", label: "Contact" }
         ]
@@ -31,29 +31,29 @@ export const content = {
                 {
                     meta: "FinTech / Real-Time",
                     title: "Stock Metrics Platform",
-                    description: "Designed and deployed a scalable trading platform serving 100+ internal users with React frontend, Python RESTful APIs, and live market data visualization. Achieved ~30% API latency reduction through query optimization and strategic caching. Established production-grade observability with Grafana, Prometheus, and Loki.",
-                    techStack: ["React", "Python", "Grafana", "Prometheus", "PostgreSQL", "Chart.js", "REST API", "Pandas", "Flask"],
+                    description: "Enterprise trading platform. 100+ senior-level users. 30% faster responses.",
+                    techStack: ["React", "Python", "Grafana", "PostgreSQL", "REST API", "WebSocket", "Redis", "Docker"],
                     video: null
                 },
                 {
                     meta: "E-Commerce / Full-Stack",
                     title: "End-to-End E-Commerce Solutions & Brand Platforms",
-                    description: "Architected full-stack web solutions from e-commerce platforms to high-performance portfolio sites. Built custom Shopify integrations handling 3x seasonal traffic spikes, while delivering SEO-optimized brand websites achieving 95+ Lighthouse scores and measurable search visibility improvements.",
-                    techStack: ["React", "LiquidJS", "Shopify API", "Python", "PostgreSQL", "3D animation", "Vercel", "Tailwind CSS", "Google Analytics"],
+                    description: "Enterprise e-commerce. Built for traffic spikes.",
+                    techStack: ["React", "LiquidJS", "Shopify API", "Python", "PostgreSQL", "3D animation", "Vercel"],
                     video: null
                 },
                 {
                     meta: "Data Visualization / Analytics",
                     title: "Interactive Business Intelligence Dashboards",
-                    description: "Designed and implemented custom analytics dashboards that transform complex datasets into actionable insights. Built data visualization tools for cross-functional teams to monitor KPIs, track business metrics, and make data-driven decisions in real-time.",
-                    techStack: ["Python", "PostgreSQL", "Grafana", "Prometheus", "Plotly", "REST API", "Pandas", "Flask", "Jupyter Notebook"],
+                    description: "Complex data. Instant insights.",
+                    techStack: ["Python", "PostgreSQL", "Grafana", "Plotly", "REST API", "Flask"],
                     video: null
                 },
                 {
                     meta: "Product Design / UX",
                     title: "Data-Driven Product Design & User Research",
-                    description: "Drove end-to-end UX design process from user research to production, creating data-informed designs in Figma that increased user engagement by 40% across e-commerce touchpoints.",
-                    techStack: ["Figma", "User Research", "Wireframing", "Prototyping", "UserTesting", "Usability Testing", "Google Analytics"],
+                    description: "Research-driven design. 40% engagement lift.",
+                    techStack: ["Figma", "User Research", "Wireframing", "Prototyping", "UserTesting"],
                     video: null
                 },
             ]
@@ -154,8 +154,7 @@ export const content = {
                 role: "Software Developer",
                 location: "Ottawa, Canada"
             }
-        ],
-        note: "* Detailed history available on request or detailed above."
+        ]
     },
     footer: {
         links: [

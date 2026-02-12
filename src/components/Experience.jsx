@@ -23,9 +23,6 @@ const Experience = () => {
                         </div>
                     ))}
                 </div>
-                <p style={{ marginTop: '2rem', opacity: 0.5, fontSize: '0.9rem' }}>
-                    {content.experience.note}
-                </p>
             </div>
         </section>
     );

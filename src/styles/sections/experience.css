@@ -1,9 +1,32 @@
-/* Experience Section */
+#experience {
+    padding-top: 100px; 
+    padding-bottom: 100px; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#experience .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-height: 0;
+}
+
+.experience-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .experience-item {
-    margin-bottom: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     transition: all 0.3s ease;
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .experience-item:hover {
