@@ -1,13 +1,13 @@
 
 
 .portfolio-video-intro {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
-    padding-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     position: relative;
     overflow: hidden;
 }

@@ -5,7 +5,7 @@ const Portfolio = () => {
     const [activeCategory, setActiveCategory] = useState(0);
 
     return (
-        <section id="portfolio" style={{ padding: 0 }}>
+        <section id="portfolio" style={{ display: 'contents' }}>
             {/* Page 1: Video Intro */}
 
             <div className="portfolio-video-intro">

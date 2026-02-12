@@ -5,8 +5,11 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    /* Ensure snap scrolling context is robust */
     overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 body {
