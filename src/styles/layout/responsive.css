@@ -93,6 +93,11 @@
 /* Mobile Adjustments (Overrides) */
 @media (max-width: 1023px) { /* Up to tablet/desktop boundary */
     
+    html {
+        scroll-snap-type: none;
+        height: auto;
+    }
+
     .nav {
         padding: 1.5rem;
     }
@@ -162,6 +167,8 @@
 
     .section {
         padding: 120px 0 4rem 0;
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
     }
 
     .hero-center-text {
