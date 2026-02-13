@@ -8,7 +8,9 @@ describe('SplashScreen Component', () => {
     });
 
     afterEach(() => {
-        vi.runOnlyPendingTimers();
+        act(() => {
+            vi.runOnlyPendingTimers();
+        });
         vi.useRealTimers();
         sessionStorage.clear();
     });
