@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react';
 // In-memory fallback for when sessionStorage is blocked
 let hasSeenSplashSession = false;
 
+export const resetSessionState = () => {
+    hasSeenSplashSession = false;
+};
+
 const SplashScreen = ({ onFinish }) => {
     const [visible, setVisible] = useState(false);
     const [opacity, setOpacity] = useState(1);
@@ -17,7 +21,7 @@ const SplashScreen = ({ onFinish }) => {
             try {
                 hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
             } catch (e) {
-                console.warn('Session storage access denied:', e);
+                // Session storage access denied
             }
         }
 
@@ -47,7 +51,7 @@ const SplashScreen = ({ onFinish }) => {
                     try {
                         sessionStorage.setItem('hasSeenSplash', 'true');
                     } catch (e) {
-                        console.warn('Session storage access denied:', e);
+                        // Session storage access denied
                     }
 
                     setTimeout(() => {

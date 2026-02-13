@@ -9,7 +9,7 @@ import SplashScreen from './components/SplashScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
-import Capabilities from './components/Capabilities';
+
 import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Archive from './components/Archive';
@@ -83,7 +83,7 @@ const Home = () => (
     <main>
       <Hero />
       <Portfolio />
-      {/* <Capabilities /> */}
+
       <Experience />
       <Footer />
     </main>

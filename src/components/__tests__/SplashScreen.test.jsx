@@ -1,51 +1,48 @@
-import { render, screen, act } from '@testing-library/react';
+import { render, screen, act, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import SplashScreen from '../SplashScreen';
-
+import SplashScreen, { resetSessionState } from '../SplashScreen';
 describe('SplashScreen Component', () => {
     beforeEach(() => {
         vi.useFakeTimers();
+        resetSessionState();
     });
 
     afterEach(() => {
         vi.runOnlyPendingTimers();
         vi.useRealTimers();
+        sessionStorage.clear();
     });
 
-    it('renders initially visible', () => {
+    it('renders initially visible', async () => {
+        render(<SplashScreen />);
+
+        // Advance timers to let typing animation finish and component update
         act(() => {
-            render(<SplashScreen />);
+            vi.advanceTimersByTime(1200);
         });
-        expect(screen.getByText('Cathy Lee')).toBeInTheDocument();
-        expect(screen.getByText('Portfolio 2026')).toBeInTheDocument();
+
+        expect(screen.getByText(/Cathy Lee/)).toBeInTheDocument();
+        expect(screen.getByText(/Portfolio 2026/)).toBeInTheDocument();
     });
 
-    it('disappears after timeout', () => {
+    it('disappears after timeout', async () => {
         let container;
         act(() => {
             const result = render(<SplashScreen />);
             container = result.container;
         });
-        const splash = container.querySelector('#splash-screen');
 
-        expect(splash).toBeVisible();
+        // Wait for it to appear first
+        expect(container.querySelector('#splash-screen')).toBeInTheDocument();
 
-        // Fast-forward time (1500 + 1000 = 2500ms total logic)
         act(() => {
             vi.advanceTimersByTime(3000);
         });
 
-        // Component returns null when visible becomes false.
-        // So the element should disappear from the DOM or at least be empty/null,
-        // Depending on React Testing Library's "container".
-        // React's render returns a snapshot. If re-render happens, component updates.
-
-        // Wait, if component returns null, it's removed from DOM?
-        // Let's check `container.innerHTML` or query again.
-        expect(container.querySelector('#splash-screen')).toBeNull();
+        expect(container.querySelector('#splash-screen')).not.toBeInTheDocument();
     });
 
-    it('calls onFinish callback', () => {
+    it('calls onFinish callback', async () => {
         const onFinishMock = vi.fn();
         render(<SplashScreen onFinish={onFinishMock} />);
 

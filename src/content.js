@@ -11,7 +11,7 @@ export const content = {
         logo: "Cathy Lee",
         links: [
             { id: "portfolio", label: "Portfolio" },
-            // { id: "capabilities", label: "CAPABILITIES" },
+
             { id: "experience", label: "Experience" },
             { id: "contact", label: "Contact" }
         ]
@@ -125,40 +125,7 @@ export const content = {
             video: null
         },
     ],
-    capabilities: {
-        items: [
-            {
-                num: "01",
-                title: "Full-Stack Application Development",
-                description: "Building production-ready applications designed for scale and maintainability. I architect performant React frontends paired with Python/Java backends, delivering complete digital solutions that handle high-traffic demands and complex business requirements from day one."
-            },
-            {
-                num: "02",
-                title: "Native iOS & Mobile Engineering",
-                description: "Shipping native-quality mobile experiences that solve real business problems. Using SwiftUI and React Native, I build enterprise tools and consumer apps with focus on performance, offline reliability, and intuitive UX that drives user adoption."
-            },
-            {
-                num: "03",
-                title: "Real-Time Monitoring & Data Visualization",
-                description: "Converting complex data into actionable insights through real-time dashboards and monitoring systems. I build high-throughput visualization platforms using modern observability stacks (Grafana, Prometheus) that empower teams to make data-driven decisions instantly."
-            },
-            {
-                num: "04",
-                title: "Performance Engineering & Optimization",
-                description: "Eliminating performance bottlenecks that impact user retention and revenue. Through systematic profiling and optimization—including database query tuning, caching strategies, and API optimization—I've consistently achieved 30%+ latency reductions in production systems."
-            },
-            {
-                num: "05",
-                title: "Cloud Infrastructure & CI/CD Automation",
-                description: "Designing resilient cloud infrastructure with automated deployment pipelines. I implement containerized architectures using Docker/Kubernetes and establish CI/CD workflows that enable fast, reliable releases while reducing operational overhead and cloud costs."
-            },
-            {
-                num: "06",
-                title: "Legacy Modernization & API Architecture",
-                description: "Modernizing legacy systems through strategic refactoring and API-first design. I transform monolithic architectures into maintainable, scalable services with well-documented RESTful APIs, enabling system interoperability and reducing technical debt."
-            }
-        ]
-    },
+
     experience: {
         items: [
             {

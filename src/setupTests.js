@@ -13,3 +13,12 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: vi.fn(),
   })),
 });
+class IntersectionObserverMock {
+  constructor() {
+    this.observe = vi.fn();
+    this.unobserve = vi.fn();
+    this.disconnect = vi.fn();
+  }
+}
+
+vi.stubGlobal('IntersectionObserver', IntersectionObserverMock);

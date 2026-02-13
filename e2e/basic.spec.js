@@ -2,9 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Personal Site E2E', () => {
   test.beforeEach(async ({ page }) => {
+    // Bypass splash screen
+    await page.addInitScript(() => {
+        sessionStorage.setItem('hasSeenSplash', 'true');
+    });
     await page.goto('/');
-    // Wait for splash screen to disappear to avoid click interception
-    await expect(page.locator('.splash-screen')).toBeHidden({ timeout: 10000 });
   });
 
   test('has title', async ({ page }) => {
@@ -48,12 +50,7 @@ test.describe('Personal Site E2E', () => {
     }
   });
 
-  test('capabilities section matches snapshot', async ({ page }) => {
-    // Basic visibility check
-    const capabilities = page.locator('#capabilities');
-    await expect(capabilities).toBeVisible();
-    await expect(page.getByText('Full-Stack Application Development')).toBeVisible();
-  });
+
 
   test('active nav link highlighting', async ({ page }) => {
     await page.goto('/#experience');

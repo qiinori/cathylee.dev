@@ -12,7 +12,7 @@ const Navbar = () => {
         try {
             savedTheme = localStorage.getItem('theme_v2');
         } catch (e) {
-            console.warn('LocalStorage access denied, using default theme behavior.');
+            // LocalStorage access denied, using default theme behavior
         }
 
         if (savedTheme) {
