@@ -1,13 +1,32 @@
 import { content } from '../content';
 import { useState, useEffect } from 'react';
 
+// In-memory fallback for when sessionStorage is blocked
+let hasSeenSplashSession = false;
+
 const SplashScreen = ({ onFinish }) => {
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(false);
     const [opacity, setOpacity] = useState(1);
     const [text, setText] = useState('');
     const fullText = content.splashScreen.title;
 
     useEffect(() => {
+        let hasSeenSplash = hasSeenSplashSession;
+
+        if (!hasSeenSplash) {
+            try {
+                hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
+            } catch (e) {
+                console.warn('Session storage access denied:', e);
+            }
+        }
+
+        if (hasSeenSplash) {
+            if (onFinish) onFinish();
+            return;
+        }
+
+        setVisible(true);
         document.body.style.overflow = 'hidden';
 
         // Typing animation
@@ -23,6 +42,13 @@ const SplashScreen = ({ onFinish }) => {
                 setTimeout(() => {
                     setOpacity(0);
                     document.body.style.overflow = '';
+
+                    hasSeenSplashSession = true;
+                    try {
+                        sessionStorage.setItem('hasSeenSplash', 'true');
+                    } catch (e) {
+                        console.warn('Session storage access denied:', e);
+                    }
 
                     setTimeout(() => {
                         setVisible(false);

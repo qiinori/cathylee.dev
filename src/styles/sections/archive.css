@@ -1,0 +1,186 @@
+/* Archive Page Styles */
+.archive-section {
+    min-height: 100vh;
+    padding: 100px 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+}
+
+.archive-header {
+    margin-bottom: 4rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--acc-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.back-link:hover {
+    color: var(--text-color);
+}
+
+.back-link svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover svg {
+    transform: translateX(-5px);
+}
+
+/* Table Styles */
+.archive-table-container {
+    width: 100%;
+    /* overflow-x handled in mobile query */
+}
+
+.archive-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.archive-table th {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    border-bottom: 1px solid var(--card-border);
+    opacity: 0.9;
+}
+
+.archive-table td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid rgba(136, 146, 176, 0.1);
+    color: var(--acc-color);
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.archive-row {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards;
+    border-radius: 4px;
+}
+
+/* Dim all rows when hovering the table body */
+.archive-table tbody:hover .archive-row {
+    opacity: 0.5 !important; /* Stronger dimming for contrast */
+    filter: blur(0.5px); /* Very subtle blur */
+    transform: scale(0.995);
+}
+
+/* Highlight the specific hovered row */
+.archive-table tbody .archive-row:hover {
+    opacity: 1 !important;
+    filter: none !important; /* Explicitly remove blur */
+    transform: scale(1);
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle highlight */
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.archive-row:hover td {
+    color: var(--acc-color) !important; /* Restore original color behavior */
+}
+
+.archive-row:hover .title-col {
+    color: var(--text-color) !important; /* Keep original title color */
+    font-weight: 400 !important;
+}
+
+.archive-row:hover .tech-pill {
+    border-color: var(--acc-color);
+    background-color: var(--card-border);
+    color: var(--text-color);
+}
+
+.year-col {
+    color: var(--acc-color);
+    font-family: monospace;
+    font-size: 0.9rem !important;
+    width: 15%;
+}
+
+.title-col {
+    font-weight: 400 !important; /* Not bold */
+    color: var(--text-color) !important;
+    font-size: 1rem !important;
+    width: 30%;
+    transition: color 0.3s ease;
+}
+
+.company-col {
+    width: 20%;
+}
+
+.tech-col {
+    width: 35%;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tech-stack-archive {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-pill {
+    font-size: 0.7rem; /* Match portfolio 0.65-0.7rem range */
+    padding: 0.25rem 0.5rem;
+    background-color: var(--pill-bg);
+    border: 1px solid var(--pill-border);
+    color: var(--pill-text);
+    border-radius: 4px; /* Consistency with portfolio items */
+    font-family: monospace;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .archive-section {
+        padding: 80px 1.5rem;
+    }
+
+    .archive-table-container {
+        overflow-x: auto;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .year-col {
+        width: 30%;
+        font-size: 0.8rem;
+    }
+
+    .title-col {
+        width: 70%;
+        font-size: 1rem;
+    }
+    
+    .archive-table th, .archive-table td {
+        padding: 1rem 0.5rem;
+    }
+}

@@ -1,9 +1,10 @@
 import { content } from '../content';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Portfolio = () => {
     // Select the "Full-Stack" category items (index 0)
-    const portfolioItems = content.portfolio.categories[0].items;
+    const portfolioItems = content.portfolio;
 
     return (
         <section style={{ display: 'contents' }}>
@@ -48,16 +49,10 @@ const Portfolio = () => {
                     </div>
 
                     <div className="portfolio-footer">
-                        <button
-                            className="portfolio-view-btn"
-                            style={{ mixBlendMode: 'difference' }}
-                            onClick={() => window.location.href = '/projects'}
-                        >
+                        <Link to="/archive" className="portfolio-view-btn">
                             View All Projects
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </Link>
                     </div>
                 </div>
             </section>

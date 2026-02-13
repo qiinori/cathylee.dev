@@ -22,78 +22,109 @@ export const content = {
             bottomRight: { label: "Specialization", text: "Full-Stack Architecture" }
         }
     },
-    portfolio: {
-    categories: [
+    portfolio: [
         {
-            id: "fullstack",
-            label: "Full-Stack Web & E-Commerce",
-            items: [
-                {
-                    meta: "FinTech / Real-Time",
-                    title: "Stock Metrics Platform",
-                    description: "Enterprise trading platform. 100+ senior-level users. 30% faster responses.",
-                    techStack: ["React", "Python", "Grafana", "PostgreSQL", "REST API", "WebSocket", "Redis", "Docker"],
-                    video: null
-                },
-                {
-                    meta: "E-Commerce / Full-Stack",
-                    title: "End-to-End E-Commerce Solutions & Brand Platforms",
-                    description: "Enterprise e-commerce. Built for traffic spikes.",
-                    techStack: ["React", "LiquidJS", "Shopify API", "Python", "PostgreSQL", "3D animation", "Vercel"],
-                    video: null
-                },
-                {
-                    meta: "Data Visualization / Analytics",
-                    title: "Interactive Business Intelligence Dashboards",
-                    description: "Complex data. Instant insights.",
-                    techStack: ["Python", "PostgreSQL", "Grafana", "Plotly", "REST API", "Flask"],
-                    video: null
-                },
-                {
-                    meta: "Product Design / UX",
-                    title: "Data-Driven Product Design & User Research",
-                    description: "Research-driven design. 40% engagement lift.",
-                    techStack: ["Figma", "User Research", "Wireframing", "Prototyping", "UserTesting"],
-                    video: null
-                },
-            ]
+            year: "2023 — 2025",
+            madeAt: "Morgan Stanley",
+            meta: "FinTech / Real-Time",
+            title: "Stock Metrics Platform",
+            description: "Enterprise trading platform. 100+ senior-level users. 30% faster responses.",
+            techStack: ["React", "Python", "Grafana", "PostgreSQL", "REST API", "WebSocket", "Redis", "Docker"],
+            video: null
         },
         {
-            id: "mobile",
-            label: "Mobile & iOS Development",
-            items: [
-                {
-                    meta: "Enterprise / Cross-Platform",
-                    title: "Enterprise Workforce Management System",
-                    description: "Developed cross-platform employee management system handling 10,000+ records with PostgreSQL backend. Implemented role-based access control (RBAC) and secure authentication for enterprise compliance.",
-                    techStack: ["React Native", "PostgreSQL", "Python"],
-                    video: null
-                },
-                {
-                    meta: "AR / Computer Vision",
-                    title: "ARKit-Powered Warehouse Navigation",
-                    description: "Prototyped ARKit-based warehouse navigation tool that reduced asset tracking errors by 25%. Integrated computer vision for real-time equipment identification and QR code verification workflows.",
-                    techStack: ["SwiftUI", "ARKit", "Spring Boot"],
-                    video: null
-                },
-                {
-                    meta: "iOS / Offline-First",
-                    title: "Large-Scale Library Cataloging App [Beta]",
-                    description: "Built offline-first iOS cataloging app with SwiftUI and CoreData, supporting 50,000+ item library. Integrated Google Books API for automated metadata enrichment with background sync capabilities.",
-                    techStack: ["Flutter", "Python", "REST API", "Google Books API"],
-                    video: null
-                },
-                {
-                    meta: "AI / Gaming",
-                    title: "ML-Powered Gaming Performance Analyzer [Beta]",
-                    description: "Developing machine learning-powered gaming analytics platform (iOS) that analyzes player performance metrics using Core ML. Provides personalized improvement recommendations based on historical match data and meta analysis.",
-                    techStack: ["Flutter", "Core ML", "Python", "Pandas", "Firebase"],
-                    video: null
-                }
-            ]
+            year: "2024 — 2025",
+            madeAt: "",
+            meta: "E-Commerce / Full-Stack",
+            title: "End-to-End E-Commerce Solutions",
+            description: "Enterprise e-commerce. Built for traffic spikes.",
+            techStack: ["React", "LiquidJS", "Shopify API", "Python", "PostgreSQL", "3D animation", "Vercel"],
+            video: null
+        },
+        {
+            year: "2024 — 2025",
+            madeAt: "Morgan Stanley",
+            meta: "Data Visualization / Analytics",
+            title: "Interactive Business Intelligence Dashboards",
+            description: "Complex data. Instant insights.",
+            techStack: ["Python", "PostgreSQL", "Grafana", "Plotly", "REST API", "Flask"],
+            video: null
+        },
+        {
+            year: "2023",
+            madeAt: "",
+            meta: "Product Design / UX",
+            title: "Data-Driven Product Design & User Research",
+            description: "Research-driven design. 40% engagement lift.",
+            techStack: ["Figma", "User Research", "Wireframing", "Prototyping", "UserTesting"],
+            video: null
         }
-    ]
-    },
+    ],
+    archive: [
+        {
+            year: "2026",
+            madeAt: "",
+            meta: "iOS / Offline-First",
+            title: "Large-Scale Library Cataloging App [Beta]",
+            description: "Built offline-first iOS cataloging app with SwiftUI and CoreData, supporting 50,000+ item library. Integrated Google Books API for automated metadata enrichment with background sync capabilities.",
+            techStack: ["Flutter", "Python", "REST API", "Google Books API"],
+            video: null
+        },
+        {
+            year: "2026",
+            madeAt: "",
+            meta: "AI / Gaming",
+            title: "ML-Powered Gaming Performance Analyzer [Beta]",
+            description: "Developing machine learning-powered gaming analytics platform (iOS) that analyzes player performance metrics using Core ML. Provides personalized improvement recommendations based on historical match data and meta analysis.",
+            techStack: ["Flutter", "Core ML", "Python", "Pandas", "Firebase"],
+            video: null
+        },
+        {
+            year: "2023 — 2025",
+            madeAt: "Morgan Stanley",
+            meta: "FinTech / Real-Time",
+            title: "Stock Metrics Platform",
+            description: "Enterprise trading platform. 100+ senior-level users. 30% faster responses.",
+            techStack: ["React", "Python", "Grafana", "PostgreSQL", "REST API", "WebSocket", "Redis", "Docker"],
+            video: null
+        },
+        {
+            year: "2024 — 2025",
+            madeAt: "Morgan Stanley",
+            meta: "Data Visualization / Analytics",
+            title: "Interactive Business Intelligence Dashboards",
+            description: "Complex data. Instant insights.",
+            techStack: ["Python", "PostgreSQL", "Grafana", "Plotly", "REST API", "Flask"],
+            video: null
+        },
+        {
+            year: "2021 — 2025",
+            madeAt: "",
+            meta: "E-Commerce / Full-Stack",
+            title: "End-to-End E-Commerce Solutions",
+            description: "Enterprise e-commerce. Built for traffic spikes.",
+            techStack: ["React", "LiquidJS", "Shopify API", "Python", "PostgreSQL", "3D animation", "Vercel"],
+            video: null
+        },
+        {
+            year: "2022",
+            madeAt: "Morgan Stanley",
+            meta: "AR / Computer Vision",
+            title: "ARKit-Powered Warehouse Navigation",
+            description: "Prototyped ARKit-based warehouse navigation tool that reduced asset tracking errors by 25%. Integrated computer vision for real-time equipment identification and QR code verification workflows.",
+            techStack: ["SwiftUI", "ARKit", "Spring Boot"],
+            video: null
+        },
+        {
+            year: "2021",
+            madeAt: "IMI",
+            meta: "Enterprise / Cross-Platform",
+            title: "Mobile Employees Management",
+            description: "Developed cross-platform employee management system handling 10,000+ records with PostgreSQL backend. Implemented role-based access control (RBAC) and secure authentication for enterprise compliance.",
+            techStack: ["React Native", "PostgreSQL", "Python"],
+            video: null
+        },
+    ],
     capabilities: {
         items: [
             {
