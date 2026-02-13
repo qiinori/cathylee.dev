@@ -18,10 +18,12 @@ const Portfolio = () => {
                     playsInline
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 >
-                    {/* Edge/Fallback (MP4 first for better compatibility/size) */}
-                    <source src="/demo_video.mp4" type="video/mp4" />
-                    {/* Chrome/Safari (MOV) */}
+                    {/* Chrome/Edge/Firefox (WebM for transparency & size) */}
+                    <source src="/demo_video.webm" type="video/webm" />
+                    {/* Safari (MOV fallback) */}
                     <source src="/demo_video.mov" />
+                    {/* Universal (MP4 fallback) */}
+                    <source src="/demo_video.mp4" type="video/mp4" />
                 </video>
             </div>
 
