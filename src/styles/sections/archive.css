@@ -67,20 +67,18 @@
 
 .archive-row {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    animation: fadeInUp 0.5s forwards;
     border-radius: 4px;
 }
 
 /* Dim all rows when hovering the table body */
-.archive-table tbody:hover .archive-row {
+.archive-table tbody.interactive:hover .archive-row {
     opacity: 0.5 !important; /* Stronger dimming for contrast */
     filter: blur(0.5px); /* Very subtle blur */
     transform: scale(0.995);
 }
 
 /* Highlight the specific hovered row */
-.archive-table tbody .archive-row:hover {
+.archive-table tbody.interactive .archive-row:hover {
     opacity: 1 !important;
     filter: none !important; /* Explicitly remove blur */
     transform: scale(1);
@@ -125,17 +123,6 @@
 
 .tech-col {
     width: 35%;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .tech-stack-archive {

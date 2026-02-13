@@ -51,7 +51,6 @@
     background-color: var(--card-bg);
     border: 1px solid var(--card-border);
     padding: 1.3rem;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     min-height: 220px;
     height: auto;
@@ -59,7 +58,6 @@
 }
 
 .portfolio-item:hover {
-    transform: translateY(-5px);
     border-color: var(--acc-color);
     box-shadow: 0 10px 30px var(--card-shadow);
     background-color: var(--card-hover-bg);
@@ -163,13 +161,8 @@
 }
 
 .portfolio-view-btn svg {
-    transition: transform 0.3s ease;
     width: 16px;
     height: 16px;
-}
-
-.portfolio-view-btn:hover svg {
-    transform: translateX(4px);
 }
 
 .portfolio-section {

@@ -1,16 +1,55 @@
 import { content } from '../content';
+import { motion } from 'framer-motion';
 
 const Experience = () => {
     return (
         <section id="experience" className="section">
             <div className="container">
-                <h2 className="mobile-section-title animate-on-scroll">Experience</h2>
-                <div className="experience-grid">
+                <motion.h2
+                    className="mobile-section-title"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    Experience
+                </motion.h2>
+                <motion.div
+                    className="experience-grid"
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        show: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.15
+                            }
+                        }
+                    }}
+                >
                     {content.experience.items.map((item, index) => (
-                        <div
-                            className="experience-item animate-on-scroll"
+                        <motion.div
+                            className="experience-item"
                             key={index}
-                            style={{ transitionDelay: `${index * 150}ms` }}
+                            variants={{
+                                hidden: { opacity: 0, y: 30 },
+                                show: {
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        type: "spring",
+                                        damping: 25,
+                                        stiffness: 100
+                                    }
+                                }
+                            }}
+                            whileHover={{
+                                x: 10,
+                                scale: 1.01,
+                                transition: { duration: 0.2 }
+                            }}
                         >
                             <div className="exp-row">
                                 <h3 className="exp-company">{item.company}</h3>
@@ -20,9 +59,9 @@ const Experience = () => {
                                 <p className="exp-role">{item.role}</p>
                                 <span className="exp-location">{item.location}</span>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -1,11 +1,11 @@
 import { content } from '../content';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import '../styles/sections/archive.css'; // Will create this
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import '../styles/sections/archive.css';
 
 const Archive = () => {
     // Flatten and Sort items by date (descending)
-    // Note: Years are strings like "2023 — 2025" or "2021". We sort by the first 4 digits.
     const allProjects = content.archive
         .sort((a, b) => {
             const yearA = parseInt(a.year.substring(0, 4));
@@ -13,18 +13,7 @@ const Archive = () => {
             return yearB - yearA;
         });
 
-    const [isAnimating, setIsAnimating] = useState(true);
-
-    useEffect(() => {
-        // Calculate total animation time: (last index * 100ms delay) + 500ms duration
-        const totalDuration = (allProjects.length * 100) + 500;
-
-        const timer = setTimeout(() => {
-            setIsAnimating(false);
-        }, totalDuration);
-
-        return () => clearTimeout(timer);
-    }, [allProjects]);
+    const [isInteractive, setIsInteractive] = useState(false);
 
     return (
         <section className="archive-section">
@@ -45,12 +34,37 @@ const Archive = () => {
                                 <th className="hide-on-mobile">Built with</th>
                             </tr>
                         </thead>
-                        <tbody style={{ pointerEvents: isAnimating ? 'none' : 'auto' }}>
+                        <motion.tbody
+                            className={isInteractive ? "interactive" : ""}
+                            initial="hidden"
+                            animate="show"
+                            onAnimationComplete={() => setIsInteractive(true)}
+                            variants={{
+                                hidden: { opacity: 0 },
+                                show: {
+                                    opacity: 1,
+                                    transition: {
+                                        staggerChildren: 0.05
+                                    }
+                                }
+                            }}
+                        >
                             {allProjects.map((project, index) => (
-                                <tr
+                                <motion.tr
                                     key={index}
-                                    style={{ animationDelay: `${index * 100}ms` }}
                                     className="archive-row"
+                                    variants={{
+                                        hidden: { opacity: 0, y: 20 },
+                                        show: {
+                                            opacity: 1,
+                                            y: 0,
+                                            transition: {
+                                                type: "spring",
+                                                damping: 25,
+                                                stiffness: 100
+                                            }
+                                        }
+                                    }}
                                 >
                                     <td className="year-col">{project.year}</td>
                                     <td className="title-col">{project.title}</td>
@@ -62,9 +76,9 @@ const Archive = () => {
                                             ))}
                                         </div>
                                     </td>
-                                </tr>
+                                </motion.tr>
                             ))}
-                        </tbody>
+                        </motion.tbody>
                     </table>
                 </div>
             </div>
