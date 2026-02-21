@@ -1,57 +1,40 @@
-import { render, screen, act, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import SplashScreen, { resetSessionState } from '../SplashScreen';
+
 describe('SplashScreen Component', () => {
     beforeEach(() => {
-        vi.useFakeTimers();
         resetSessionState();
+        // Create the splash-screen element that would exist in index.html
+        const splash = document.createElement('div');
+        splash.id = 'splash-screen';
+        document.body.appendChild(splash);
     });
 
     afterEach(() => {
-        act(() => {
-            vi.runOnlyPendingTimers();
-        });
-        vi.useRealTimers();
         sessionStorage.clear();
+        const splash = document.getElementById('splash-screen');
+        if (splash) splash.remove();
     });
 
-    it('renders initially visible', async () => {
+    it('renders null (splash is handled by index.html)', () => {
+        const { container } = render(<SplashScreen />);
+        expect(container.innerHTML).toBe('');
+    });
+
+    it('removes splash element if it is already hidden', () => {
+        const splash = document.getElementById('splash-screen');
+        splash.style.display = 'none';
+
         render(<SplashScreen />);
 
-        // Advance timers to let typing animation finish and component update
-        act(() => {
-            vi.advanceTimersByTime(1200);
-        });
-
-        expect(screen.getByText(/Cathy Lee/)).toBeInTheDocument();
-        expect(screen.getByText(/Portfolio 2026/)).toBeInTheDocument();
+        expect(document.getElementById('splash-screen')).toBeNull();
     });
 
-    it('disappears after timeout', async () => {
-        let container;
-        act(() => {
-            const result = render(<SplashScreen />);
-            container = result.container;
-        });
+    it('keeps splash element if it is still visible', () => {
+        render(<SplashScreen />);
 
-        // Wait for it to appear first
-        expect(container.querySelector('#splash-screen')).toBeInTheDocument();
-
-        act(() => {
-            vi.advanceTimersByTime(3000);
-        });
-
-        expect(container.querySelector('#splash-screen')).not.toBeInTheDocument();
-    });
-
-    it('calls onFinish callback', async () => {
-        const onFinishMock = vi.fn();
-        render(<SplashScreen onFinish={onFinishMock} />);
-
-        act(() => {
-            vi.advanceTimersByTime(3000);
-        });
-
-        expect(onFinishMock).toHaveBeenCalled();
+        // Splash element should still exist since it hasn't been hidden yet
+        expect(document.getElementById('splash-screen')).not.toBeNull();
     });
 });

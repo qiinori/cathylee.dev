@@ -14,10 +14,17 @@ const PixelBackground = () => {
         let mouseX = 0;
         let mouseY = 0;
         let animationFrameId;
+        let lastFrameTime = 0;
+        const targetInterval = 1000 / 30; // Cap at 30fps
 
+        let mouseMoveTimeout;
         const onMouseMove = (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+            if (mouseMoveTimeout) return;
+            mouseMoveTimeout = setTimeout(() => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                mouseMoveTimeout = null;
+            }, 50);
         };
 
         const initParticles = () => {
@@ -46,7 +53,13 @@ const PixelBackground = () => {
             initParticles();
         };
 
-        const animate = () => {
+        const animate = (currentTime) => {
+            animationFrameId = requestAnimationFrame(animate);
+
+            const delta = currentTime - lastFrameTime;
+            if (delta < targetInterval) return;
+            lastFrameTime = currentTime - (delta % targetInterval);
+
             ctx.clearRect(0, 0, width, height);
 
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -72,20 +85,30 @@ const PixelBackground = () => {
                     ctx.restore();
                 }
             });
-
-            animationFrameId = requestAnimationFrame(animate);
         };
 
-        window.addEventListener('mousemove', onMouseMove);
-        window.addEventListener('resize', resize);
+        const onVisibilityChange = () => {
+            if (document.hidden) {
+                cancelAnimationFrame(animationFrameId);
+            } else {
+                lastFrameTime = 0;
+                animationFrameId = requestAnimationFrame(animate);
+            }
+        };
+
+        window.addEventListener('mousemove', onMouseMove, { passive: true });
+        window.addEventListener('resize', resize, { passive: true });
+        document.addEventListener('visibilitychange', onVisibilityChange);
 
         resize();
-        animate();
+        animationFrameId = requestAnimationFrame(animate);
 
         return () => {
             window.removeEventListener('mousemove', onMouseMove);
             window.removeEventListener('resize', resize);
+            document.removeEventListener('visibilitychange', onVisibilityChange);
             cancelAnimationFrame(animationFrameId);
+            if (mouseMoveTimeout) clearTimeout(mouseMoveTimeout);
         };
     }, []);
 

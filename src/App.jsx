@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
+import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import PixelBackground from './components/PixelBackground';
@@ -8,11 +6,20 @@ import CustomCursor from './components/CustomCursor';
 import SplashScreen from './components/SplashScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Portfolio from './components/Portfolio';
 
-import Experience from './components/Experience';
-import Footer from './components/Footer';
-import Archive from './components/Archive';
+// Lazy-load below-the-fold components (includes framer-motion)
+const Portfolio = lazy(() => import('./components/Portfolio'));
+const Experience = lazy(() => import('./components/Experience'));
+const Footer = lazy(() => import('./components/Footer'));
+const Archive = lazy(() => import('./components/Archive'));
+
+// Lazy-load analytics
+const Analytics = lazy(() =>
+  import('@vercel/analytics/react').then(m => ({ default: m.Analytics }))
+);
+const SpeedInsights = lazy(() =>
+  import('@vercel/speed-insights/react').then(m => ({ default: m.SpeedInsights }))
+);
 
 // Component to handle animations and scroll on route change
 const NavigationHandler = () => {
@@ -82,10 +89,11 @@ const Home = () => (
     <Navbar />
     <main>
       <Hero />
-      <Portfolio />
-
-      <Experience />
-      <Footer />
+      <Suspense fallback={null}>
+        <Portfolio />
+        <Experience />
+        <Footer />
+      </Suspense>
     </main>
   </>
 );
@@ -101,12 +109,16 @@ function App() {
             <PixelBackground />
             <div className="noise-overlay"></div>
             <CustomCursor />
-            <Archive />
+            <Suspense fallback={null}>
+              <Archive />
+            </Suspense>
           </>
         } />
       </Routes>
-      <Analytics />
-      <SpeedInsights />
+      <Suspense fallback={null}>
+        <Analytics />
+        <SpeedInsights />
+      </Suspense>
     </Router>
   );
 }

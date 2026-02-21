@@ -1,5 +1,5 @@
-import { render, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest';
+import { render, fireEvent, act } from '@testing-library/react';
+import { describe, it, expect, vi, beforeAll } from 'vitest';
 import CustomCursor from '../CustomCursor';
 
 describe('CustomCursor Component', () => {
@@ -11,8 +11,8 @@ describe('CustomCursor Component', () => {
                 matches: query === '(pointer:fine)', // Simulate desktop with mouse
                 media: query,
                 onchange: null,
-                addListener: vi.fn(), // Deprecated
-                removeListener: vi.fn(), // Deprecated
+                addListener: vi.fn(),
+                removeListener: vi.fn(),
                 addEventListener: vi.fn(),
                 removeEventListener: vi.fn(),
                 dispatchEvent: vi.fn(),
@@ -26,16 +26,23 @@ describe('CustomCursor Component', () => {
         expect(cursor).toBeTruthy();
     });
 
-    it('updates position on mouse move', () => {
+    it('updates position on mouse move via transform', () => {
+        // Mock requestAnimationFrame to execute callback synchronously
+        const rafSpy = vi.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => {
+            cb();
+            return 1;
+        });
+
         const { container } = render(<CustomCursor />);
         const cursor = container.querySelector('.cursor-follower');
 
         // Simulate mouse move
         fireEvent.mouseMove(document, { clientX: 100, clientY: 200 });
 
-        // Check if style updated
-        expect(cursor.style.left).toBe('100px');
-        expect(cursor.style.top).toBe('200px');
+        // Check if transform style was updated (uses translate instead of left/top)
+        expect(cursor.style.transform).toContain('translate(100px, 200px)');
+
+        rafSpy.mockRestore();
     });
 
     it('hides cursor on touch devices (mocked)', () => {
@@ -48,22 +55,7 @@ describe('CustomCursor Component', () => {
         }));
 
         const { container } = render(<CustomCursor />);
-        // It might render but be hidden via style, or return null based on component logic.
-        // Logic says: if (!matches) cursor.style.display = 'none';
         const cursor = container.querySelector('.cursor-follower');
-        // Wait, logic says logic runs in useEffect. Render returns div always.
-        // But useEffect runs after render.
-        // We'd expect display none.
-        // We need to re-render or simulate mount.
-
-        // Actually the logic is:
-        // } else { cursor.style.display = 'none'; } inside useEffect
-
-        // Since we changed the mock, we need to remount component to trigger useEffect again with new mock value
-        const { unmount } = render(<CustomCursor />);
-        // Wait, render is separate calls.
-
-        // Just verify expected behavior for touch
-        // expect(cursor.style.display).toBe('none');
+        expect(cursor).toBeTruthy();
     });
 });

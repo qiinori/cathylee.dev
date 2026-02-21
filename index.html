@@ -5,10 +5,49 @@
     <link rel="icon" type="image/png" href="/web_Logo_NoBG.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio of Cathy Lee - Software Developer specializing in Full-Stack Architecture, React, Python, and Real-Time Systems." />
+    <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
     <title>Cathy Lee - Software Developer</title>
+    <style>
+      .splash-screen{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#000;color:#fff;z-index:20000;display:flex;justify-content:center;align-items:center;transition:opacity 1s cubic-bezier(0.77,0,0.175,1)}
+      .splash-text{display:flex;flex-direction:column;align-items:center;font-size:1.5rem;font-weight:300;letter-spacing:2px}
+      .splash-sub{font-size:0.8rem;opacity:0.5;margin-top:0.5rem;font-family:monospace}
+      .splash-cursor{display:inline-block;margin-left:2px;animation:blink 1s step-end infinite}
+      @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+      @media(max-width:1023px){.splash-text{font-size:1.2rem}}
+    </style>
   </head>
   <body>
+    <div id="splash-screen" class="splash-screen">
+      <div class="splash-text">
+        <span id="splash-typing"><span class="splash-cursor">|</span></span>
+        <span class="splash-sub">Portfolio 2026</span>
+      </div>
+    </div>
     <div id="root"></div>
+    <script>
+      (function(){
+        var seen=false;
+        try{seen=sessionStorage.getItem('hasSeenSplash')}catch(e){}
+        var ss=document.getElementById('splash-screen');
+        if(seen){ss.style.display='none';return}
+        document.body.style.overflow='hidden';
+        var text='Cathy Lee',i=0,el=document.getElementById('splash-typing');
+        var iv=setInterval(function(){
+          if(i<=text.length){
+            el.innerHTML=text.slice(0,i)+'<span class="splash-cursor">|</span>';
+            i++
+          }else{
+            clearInterval(iv);
+            setTimeout(function(){
+              ss.style.opacity='0';
+              document.body.style.overflow='';
+              try{sessionStorage.setItem('hasSeenSplash','true')}catch(e){}
+              setTimeout(function(){ss.style.display='none'},1000)
+            },500)
+          }
+        },100)
+      })()
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

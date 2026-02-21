@@ -1,28 +1,47 @@
 import { content } from '../content';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const Portfolio = () => {
     // Select the "Full-Stack" category items (index 0)
     const portfolioItems = content.portfolio;
+    const videoRef = useRef(null);
+    const videoSectionRef = useRef(null);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        const section = videoSectionRef.current;
+        if (!video || !section) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    video.play().catch(() => {});
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.25 }
+        );
+
+        observer.observe(section);
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <section style={{ display: 'contents' }}>
             {/* Page 1: Video Intro */}
-            <div className="portfolio-video-intro">
+            <div id="demo" className="portfolio-video-intro" ref={videoSectionRef}>
                 <video
-                    autoPlay
+                    ref={videoRef}
                     loop
                     muted
                     playsInline
+                    preload="none"
+                    poster="/demo_video_poster.jpg"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 >
-                    {/* Chrome/Edge/Firefox (WebM for transparency & size) */}
                     <source src="/demo_video.webm" type="video/webm" />
-                    {/* Safari (MOV fallback) */}
-                    <source src="/demo_video.mov" />
-                    {/* Universal (MP4 fallback) */}
                     <source src="/demo_video.mp4" type="video/mp4" />
                 </video>
             </div>

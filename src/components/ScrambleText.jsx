@@ -2,9 +2,11 @@ import { useState, useRef, useEffect } from 'react';
 
 const chars = '!<>-_\\/[]{}—=+*^?#________';
 
-const ScrambleText = ({ text, triggerOnMount = false, delay = 0 }) => {
+const ScrambleText = ({ text, triggerOnMount = false, delay = 0, triggerKey }) => {
     const [display, setDisplay] = useState(text);
     const intervalRef = useRef(null);
+    const prevTriggerKey = useRef(triggerKey);
+    const hasMounted = useRef(false);
 
     const scramble = () => {
         let iteration = 0;
@@ -38,10 +40,25 @@ const ScrambleText = ({ text, triggerOnMount = false, delay = 0 }) => {
         if (triggerOnMount) {
             const timeout = setTimeout(() => {
                 scramble();
+                hasMounted.current = true;
             }, delay);
             return () => clearTimeout(timeout);
+        } else {
+            hasMounted.current = true;
         }
     }, [triggerOnMount, delay]);
+
+    // Trigger scramble when triggerKey changes (skip until after mount animation)
+    useEffect(() => {
+        if (!hasMounted.current) {
+            prevTriggerKey.current = triggerKey;
+            return;
+        }
+        if (triggerKey !== prevTriggerKey.current) {
+            prevTriggerKey.current = triggerKey;
+            scramble();
+        }
+    }, [triggerKey]);
 
     return (
         <span

@@ -10,48 +10,48 @@ const CustomCursor = () => {
         if (matchMedia('(pointer:fine)').matches) {
             document.body.classList.add('custom-cursor-active');
 
+            let rafId;
+            let pendingX = 0, pendingY = 0;
+            let isHovering = false;
+
             const onMouseMove = (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
+                pendingX = e.clientX;
+                pendingY = e.clientY;
+                if (!rafId) {
+                    rafId = requestAnimationFrame(() => {
+                        const scale = isHovering ? 'scale(2.5)' : 'scale(1)';
+                        cursor.style.transform = `translate(${pendingX}px, ${pendingY}px) translate(-50%, -50%) ${scale}`;
+                        rafId = null;
+                    });
+                }
             };
-
-            const onMouseEnter = () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
-                cursor.style.mixBlendMode = 'normal';
-                cursor.style.opacity = '0.1';
-            };
-
-            const onMouseLeave = () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursor.style.mixBlendMode = 'difference';
-                cursor.style.opacity = '';
-            };
-
-            document.addEventListener('mousemove', onMouseMove);
-
-            // Use event delegation to handle dynamic elements
 
             const onMouseOver = (e) => {
                 if (e.target.closest('a, button, .interactive')) {
-                    onMouseEnter();
+                    isHovering = true;
+                    cursor.style.mixBlendMode = 'normal';
+                    cursor.style.opacity = '0.1';
                 }
             };
 
             const onMouseOut = (e) => {
                 if (e.target.closest('a, button, .interactive')) {
-                    onMouseLeave();
+                    isHovering = false;
+                    cursor.style.mixBlendMode = 'difference';
+                    cursor.style.opacity = '';
                 }
             };
 
+            document.addEventListener('mousemove', onMouseMove, { passive: true });
             document.addEventListener('mouseover', onMouseOver);
             document.addEventListener('mouseout', onMouseOut);
-
 
             return () => {
                 document.body.classList.remove('custom-cursor-active');
                 document.removeEventListener('mousemove', onMouseMove);
                 document.removeEventListener('mouseover', onMouseOver);
                 document.removeEventListener('mouseout', onMouseOut);
+                if (rafId) cancelAnimationFrame(rafId);
             };
         } else {
             cursor.style.display = 'none';

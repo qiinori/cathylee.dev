@@ -27,13 +27,14 @@ const Navbar = () => {
 
     // Scroll Spy for Activity Highlighting
     useEffect(() => {
-        const sections = document.querySelectorAll('section, footer');
         const observerOptions = {
             threshold: 0.3,
             rootMargin: "-20% 0px -20% 0px"
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observedElements = new Set();
+
+        const intersectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     if (entry.target.id) setActiveSection(entry.target.id);
@@ -42,9 +43,28 @@ const Navbar = () => {
             });
         }, observerOptions);
 
-        sections.forEach(section => observer.observe(section));
+        const observeSections = () => {
+            document.querySelectorAll('section, footer, .portfolio-video-intro').forEach(section => {
+                if (!observedElements.has(section)) {
+                    observedElements.add(section);
+                    intersectionObserver.observe(section);
+                }
+            });
+        };
 
-        return () => observer.disconnect();
+        // Initial observe
+        observeSections();
+
+        // Watch for lazy-loaded components adding new sections to the DOM
+        const mutationObserver = new MutationObserver(() => {
+            observeSections();
+        });
+        mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+        return () => {
+            intersectionObserver.disconnect();
+            mutationObserver.disconnect();
+        };
     }, []);
 
     const toggleTheme = () => {
@@ -80,6 +100,7 @@ const Navbar = () => {
                         text={content.navbar.logo}
                         triggerOnMount={true}
                         delay={2800} // Wait for splash screen (~2.5s)
+                        triggerKey={activeSection}
                     />
                 </a>
             </div>

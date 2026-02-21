@@ -60,15 +60,17 @@
 /* Custom Cursor */
 .cursor-follower {
     position: fixed;
+    top: 0;
+    left: 0;
     width: var(--cursor-size);
     height: var(--cursor-size);
     background-color: var(--text-color);
     border-radius: 50%;
     pointer-events: none;
-    transform: translate(-50%, -50%);
     z-index: 9999;
     mix-blend-mode: difference;
-    transition: width 0.2s, height 0.2s;
+    transition: width 0.2s, height 0.2s, opacity 0.2s;
+    will-change: transform;
 }
 
 /* Animation Classes */
