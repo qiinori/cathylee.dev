@@ -60,10 +60,17 @@
 
 /* Mobile Adjustments (Overrides) */
 @media (max-width: 1023px) { /* Up to tablet/desktop boundary */
-    
+
     html {
         scroll-snap-type: none;
         height: auto;
+    }
+
+    .portfolio-video-intro {
+        height: auto !important;
+        min-height: 0;
+        padding-top: 100px;
+        padding-bottom: 2rem;
     }
 
     .nav {
@@ -265,6 +272,10 @@
 
     .mobile-menu-btn {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
         z-index: 10002;
     }
 
@@ -313,9 +324,47 @@
         max-width: 35%;
     }
 
-    .portfolio-video-intro {
-        height: 40vh !important; 
-        min-height: 300px;
+    .device-mockup {
+        width: 92%;
+    }
+
+    .device-frame {
+        border-radius: 10px;
+    }
+
+    .device-bezel-top {
+        height: 18px;
+    }
+
+    .device-notch {
+        width: 6px;
+        height: 6px;
+    }
+
+    .device-chin {
+        height: 12px;
+    }
+
+    .device-hinge {
+        height: 3px;
+    }
+
+    .device-glow {
+        inset: -12px;
+        border-radius: 16px;
+        filter: blur(24px);
+    }
+
+    .demo-label {
+        margin-top: 14px;
+    }
+
+    .demo-label-title {
+        font-size: 0.75rem;
+    }
+
+    .demo-label-subtitle {
+        font-size: 0.58rem;
     }
 
     .contact-links {

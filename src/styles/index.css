@@ -9,6 +9,7 @@
 /* Sections */
 @import './sections/hero.css';
 @import './sections/portfolio.css';
+@import './sections/sentinel-mockup.css';
 
 @import './sections/experience.css';
 @import './sections/footer.css';

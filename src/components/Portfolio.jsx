@@ -1,49 +1,42 @@
 import { content } from '../content';
 import { motion } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import SentinelMockup from './SentinelMockup';
 
 const Portfolio = () => {
-    // Select the "Full-Stack" category items (index 0)
     const portfolioItems = content.portfolio;
-    const videoRef = useRef(null);
-    const videoSectionRef = useRef(null);
-
-    useEffect(() => {
-        const video = videoRef.current;
-        const section = videoSectionRef.current;
-        if (!video || !section) return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    video.play().catch(() => {});
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.25 }
-        );
-
-        observer.observe(section);
-        return () => observer.disconnect();
-    }, []);
 
     return (
         <section style={{ display: 'contents' }}>
-            {/* Page 1: Video Intro */}
-            <div id="demo" className="portfolio-video-intro" ref={videoSectionRef}>
-                <video
-                    ref={videoRef}
-                    loop
-                    muted
-                    playsInline
-                    preload="none"
-                    poster="/demo_video_poster.jpg"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                >
-                    <source src="/demo_video.webm" type="video/webm" />
-                    <source src="/demo_video.mp4" type="video/mp4" />
-                </video>
+            {/* Page 1: Dashboard Intro */}
+            <div id="demo" className="portfolio-video-intro">
+                <div className="device-mockup">
+                    <div className="device-glow"></div>
+                    <div className="device-frame">
+                        <div className="device-bezel-top">
+                            <div className="device-notch"></div>
+                        </div>
+                        <div className="device-screen">
+                            <SentinelMockup />
+                        </div>
+                        <div className="device-chin">
+                            <div className="device-hinge"></div>
+                        </div>
+                    </div>
+                    <motion.a
+                        className="demo-label"
+                        href="https://llm-sentinel-frontend.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+                    >
+                        <span className="demo-label-title">LLM Sentinel</span>
+                        <span className="demo-label-subtitle">AI Security Monitor</span>
+                    </motion.a>
+                </div>
             </div>
 
             {/* Page 2: Project Grid */}

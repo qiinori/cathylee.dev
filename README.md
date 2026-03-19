@@ -1,64 +1,72 @@
-# Personal Portfolio
+# cathylee.dev
 
-A modern, responsive personal portfolio website built with React, Vite, and Tailwind-inspired CSS.
+A modern, responsive personal portfolio website built with React, Vite, and Framer Motion.
 
-![Demo](public/web_demo_video.gif)
+**Live**: [cathylee.dev](https://cathylee.dev)
 
 ## Features
-- **Dynamic Interactions**: Custom cursor, pixel background, and scroll animations.
-- **Dark/Light Mode**: Theme persistence with local storage.
-- **Responsive Design**: Mobile-first approach with a dedicated mobile menu.
-- **Performance**: Optimized load times and smooth transitions.
 
-## Application Architecture
+- **Interactive Dashboard Mockup**: 1:1 replica of the LLM Sentinel dashboard rendered inside a MacBook device frame with animated KPIs, SVG charts, and interactive time range picker
+- **Rich Animations**: Scroll reveals, spring physics, stagger effects, count-up numbers, and chart line drawing via Framer Motion
+- **Dark/Light Mode**: Theme persistence with local storage
+- **Dynamic Interactions**: Custom cursor, pixel background, and scroll-snap sections
+- **Responsive Design**: Mobile-first approach with hamburger menu and adaptive layouts
+- **Performance**: Lazy-loaded below-the-fold sections, optimized load times
 
-### Tech Stack
-- **Framework**: React 19 + Vite
-- **Styling**: Vanilla CSS (Variables, Flexbox/Grid)
-- **Testing**: Vitest (Unit) + Playwright (E2E)
+## Tech Stack
 
-### Project Structure
-- `src/components/`: Reusable UI components (Navbar, Hero, Experience, etc.)
-- `src/index.css`: Global styles and theme variables.
-- `e2e/`: End-to-End test specifications.
+- **Framework**: React 19 + Vite 7
+- **Animation**: Framer Motion 12
+- **Routing**: React Router 7
+- **Styling**: Vanilla CSS (variables, flexbox/grid)
+- **Testing**: Vitest (unit) + Playwright (E2E)
+- **Deployment**: Vercel (auto-deploy on push to main)
+
+## Project Structure
+
+```
+src/
+├── App.jsx              # Router: / (Home) and /archive
+├── content.js           # All portfolio/experience data
+├── components/
+│   ├── Hero.jsx         # Landing section
+│   ├── Portfolio.jsx    # Demo section + project grid
+│   ├── SentinelMockup.jsx  # Interactive dashboard mockup
+│   ├── Experience.jsx   # Work experience timeline
+│   ├── Footer.jsx       # Contact links
+│   ├── Archive.jsx      # /archive — full project list
+│   ├── Navbar.jsx       # Nav with mobile hamburger
+│   ├── PixelBackground.jsx  # Animated background
+│   ├── CustomCursor.jsx # Custom cursor effect
+│   ├── ScrambleText.jsx # Text scramble animation
+│   └── SplashScreen.jsx # Loading screen
+├── styles/
+│   ├── index.css        # Import aggregator
+│   ├── base/            # reset.css, variables.css
+│   ├── layout/          # responsive.css
+│   └── sections/        # Per-section styles
+```
 
 ## Development
 
-1. **Install Dependencies**
-   ```bash
-   npm install
-   ```
-
-2. **Start Dev Server**
-   ```bash
-   npm run dev
-   ```
+```bash
+npm install
+npm run dev
+```
 
 ## Testing
 
-This project uses a comprehensive testing strategy covering distinct units and full user flows.
-
 ### Unit Tests (Vitest)
-Verifies individual component logic and rendering (e.g., Navbar toggles, Experience list rendering).
 
 ```bash
-# Run all unit tests
 npm test
-
-# Run with UI preview
-npx vitest --ui
+npx vitest --ui    # with UI preview
 ```
 
 ### End-to-End Tests (Playwright)
-Verifies critical user journeys in a real browser environment (e.g., Navigation, Theme Persistence, Mobile Menu).
 
 ```bash
-# Run all E2E tests (headless)
-npx playwright test
-
-# Run tests with UI mode (trace viewer, time travel)
-npx playwright test --ui
-
-# Show HTML test report
-npx playwright show-report
+npx playwright test              # headless
+npx playwright test --ui         # UI mode
+npx playwright show-report       # HTML report
 ```
